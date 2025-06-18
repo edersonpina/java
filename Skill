@@ -1,0 +1,612 @@
+.class public Lnet/fdgames/Rules/Skill;
+.super Ljava/lang/Object;
+.source "Skill.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lnet/fdgames/Rules/Skill$SKILL_TYPE;
+    }
+.end annotation
+
+
+# instance fields
+.field public NPCSkill:Z
+
+.field public advanced:Z
+
+.field private baseDescription:Ljava/lang/String;
+
+.field public id:Ljava/lang/String;
+
+.field public levels:Ljava/util/ArrayList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/ArrayList",
+            "<",
+            "Lnet/fdgames/Rules/SkillLevel;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private name:Ljava/lang/String;
+
+.field public requiresMelee:Z
+
+.field public requiresRanged:Z
+
+.field public skillClass:Lnet/fdgames/Rules/ClassRestriction;
+
+.field public skillsRequired:Lnet/fdgames/GameLogic/SkillRequirements;
+
+.field public traitsRequired:Lnet/fdgames/GameLogic/PlayerRequirements;
+
+.field public type:Lnet/fdgames/Rules/Skill$SKILL_TYPE;
+
+
+# direct methods
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lnet/fdgames/Rules/Skill$SKILL_TYPE;Ljava/lang/String;Ljava/lang/Boolean;ZZZ)V
+    .registers 13
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lnet/fdgames/Rules/Skill;->levels:Ljava/util/ArrayList;
+
+    sget-object v0, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, " "
+
+    const-string v2, "_"
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "\'"
+
+    const-string v2, ""
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lnet/fdgames/Rules/Skill;->id:Ljava/lang/String;
+
+    const-string v0, "ecission"
+
+    const-string v1, "ecision"
+
+    invoke-virtual {p2, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lnet/fdgames/Rules/Skill;->name:Ljava/lang/String;
+
+    iput-object p4, p0, Lnet/fdgames/Rules/Skill;->type:Lnet/fdgames/Rules/Skill$SKILL_TYPE;
+
+    new-instance v0, Lnet/fdgames/Rules/ClassRestriction;
+
+    invoke-direct {v0, p5}, Lnet/fdgames/Rules/ClassRestriction;-><init>(Ljava/lang/String;)V
+
+    iput-object v0, p0, Lnet/fdgames/Rules/Skill;->skillClass:Lnet/fdgames/Rules/ClassRestriction;
+
+    iput-object p3, p0, Lnet/fdgames/Rules/Skill;->baseDescription:Ljava/lang/String;
+
+    invoke-virtual {p6}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lnet/fdgames/Rules/Skill;->NPCSkill:Z
+
+    iput-boolean p7, p0, Lnet/fdgames/Rules/Skill;->requiresMelee:Z
+
+    iput-boolean p8, p0, Lnet/fdgames/Rules/Skill;->requiresRanged:Z
+
+    iput-boolean p9, p0, Lnet/fdgames/Rules/Skill;->advanced:Z
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lnet/fdgames/Rules/Skill;->levels:Ljava/util/ArrayList;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public a(Lnet/fdgames/Rules/Rules$CharacterClass;)Ljava/lang/Boolean;
+    .registers 3
+
+    iget-object v0, p0, Lnet/fdgames/Rules/Skill;->skillClass:Lnet/fdgames/Rules/ClassRestriction;
+
+    invoke-virtual {v0, p1}, Lnet/fdgames/Rules/ClassRestriction;->a(Lnet/fdgames/Rules/Rules$CharacterClass;)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_12
+
+    const/4 v0, 0x1
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    :goto_11
+    return-object v0
+
+    :cond_12
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    goto :goto_11
+.end method
+
+.method public a()Ljava/lang/String;
+    .registers 2
+
+    iget-object v0, p0, Lnet/fdgames/Rules/Skill;->baseDescription:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public a(I)Lnet/fdgames/Rules/SkillLevel;
+    .registers 3
+
+    if-ltz p1, :cond_c
+
+    iget-object v0, p0, Lnet/fdgames/Rules/Skill;->levels:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, -0x1
+
+    if-le p1, v0, :cond_e
+
+    :cond_c
+    const/4 v0, 0x0
+
+    :goto_d
+    return-object v0
+
+    :cond_e
+    iget-object v0, p0, Lnet/fdgames/Rules/Skill;->levels:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lnet/fdgames/Rules/SkillLevel;
+
+    goto :goto_d
+.end method
+
+.method public a(Ljava/lang/String;)V
+    .registers 4
+
+    invoke-virtual {p1}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, ""
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_d
+
+    :goto_c
+    return-void
+
+    :cond_d
+    new-instance v0, Lnet/fdgames/GameLogic/SkillRequirements;
+
+    invoke-direct {v0, p1}, Lnet/fdgames/GameLogic/SkillRequirements;-><init>(Ljava/lang/String;)V
+
+    iput-object v0, p0, Lnet/fdgames/Rules/Skill;->skillsRequired:Lnet/fdgames/GameLogic/SkillRequirements;
+
+    goto :goto_c
+.end method
+
+.method public a(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
+    .registers 12
+
+    iget-object v0, p0, Lnet/fdgames/Rules/Skill;->levels:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    if-nez v0, :cond_1c
+
+    iget-object v6, p0, Lnet/fdgames/Rules/Skill;->levels:Ljava/util/ArrayList;
+
+    new-instance v0, Lnet/fdgames/Rules/SkillLevel;
+
+    invoke-virtual {p0}, Lnet/fdgames/Rules/Skill;->b()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, ""
+
+    const/4 v3, 0x0
+
+    const-string v4, ""
+
+    move-object v5, p4
+
+    invoke-direct/range {v0 .. v5}, Lnet/fdgames/Rules/SkillLevel;-><init>(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v6, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_1c
+    iget-object v0, p0, Lnet/fdgames/Rules/Skill;->levels:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_7a
+
+    const-string v0, "I"
+
+    :goto_27
+    iget-object v1, p0, Lnet/fdgames/Rules/Skill;->levels:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    const/4 v2, 0x2
+
+    if-ne v1, v2, :cond_32
+
+    const-string v0, "II"
+
+    :cond_32
+    iget-object v1, p0, Lnet/fdgames/Rules/Skill;->levels:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    const/4 v2, 0x3
+
+    if-ne v1, v2, :cond_3d
+
+    const-string v0, "III"
+
+    :cond_3d
+    iget-object v1, p0, Lnet/fdgames/Rules/Skill;->levels:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    const/4 v2, 0x4
+
+    if-ne v1, v2, :cond_48
+
+    const-string v0, "IV"
+
+    :cond_48
+    iget-object v1, p0, Lnet/fdgames/Rules/Skill;->levels:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    const/4 v2, 0x5
+
+    if-ne v1, v2, :cond_53
+
+    const-string v0, "V"
+
+    :cond_53
+    iget-object v6, p0, Lnet/fdgames/Rules/Skill;->levels:Ljava/util/ArrayList;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {p0}, Lnet/fdgames/Rules/Skill;->b()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, " "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    new-instance v0, Lnet/fdgames/Rules/SkillLevel;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    move-object v2, p1
+
+    move v3, p2
+
+    move-object v4, p3
+
+    move-object v5, p4
+
+    invoke-direct/range {v0 .. v5}, Lnet/fdgames/Rules/SkillLevel;-><init>(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v6, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    return-void
+
+    :cond_7a
+    const-string v0, ""
+
+    goto :goto_27
+.end method
+
+.method public a(Lnet/fdgames/GameEntities/CharacterSheet/CharacterSheet;)Z
+    .registers 6
+
+    const/4 v1, 0x1
+
+    const/4 v0, 0x0
+
+    iget-boolean v2, p0, Lnet/fdgames/Rules/Skill;->advanced:Z
+
+    if-nez v2, :cond_8
+
+    :cond_6
+    move v0, v1
+
+    :cond_7
+    :goto_7
+    return v0
+
+    :cond_8
+    iget-object v2, p0, Lnet/fdgames/Rules/Skill;->traitsRequired:Lnet/fdgames/GameLogic/PlayerRequirements;
+
+    if-eqz v2, :cond_12
+
+    invoke-virtual {v2, p1, v1}, Lnet/fdgames/GameLogic/PlayerRequirements;->a(Lnet/fdgames/GameEntities/CharacterSheet/CharacterSheet;Z)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_7
+
+    :cond_12
+    iget-object v2, p0, Lnet/fdgames/Rules/Skill;->skillsRequired:Lnet/fdgames/GameLogic/SkillRequirements;
+
+    if-eqz v2, :cond_1c
+
+    invoke-virtual {v2, p1}, Lnet/fdgames/GameLogic/SkillRequirements;->a(Lnet/fdgames/GameEntities/CharacterSheet/CharacterSheet;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_7
+
+    :cond_1c
+    iget-object v2, p0, Lnet/fdgames/Rules/Skill;->skillClass:Lnet/fdgames/Rules/ClassRestriction;
+
+    invoke-virtual {p1}, Lnet/fdgames/GameEntities/CharacterSheet/CharacterSheet;->n()Lnet/fdgames/Rules/Rules$CharacterClass;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Lnet/fdgames/Rules/ClassRestriction;->a(Lnet/fdgames/Rules/Rules$CharacterClass;)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v2
+
+    if-nez v2, :cond_6
+
+    goto :goto_7
+.end method
+
+.method public b()Ljava/lang/String;
+    .registers 2
+
+    iget-object v0, p0, Lnet/fdgames/Rules/Skill;->name:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public b(Lnet/fdgames/GameEntities/CharacterSheet/CharacterSheet;)Ljava/lang/String;
+    .registers 5
+
+    iget-object v0, p0, Lnet/fdgames/Rules/Skill;->traitsRequired:Lnet/fdgames/GameLogic/PlayerRequirements;
+
+    if-nez v0, :cond_2b
+
+    const-string v0, ""
+
+    :goto_6
+    iget-object v1, p0, Lnet/fdgames/Rules/Skill;->skillsRequired:Lnet/fdgames/GameLogic/SkillRequirements;
+
+    if-nez v1, :cond_30
+
+    const-string v1, ""
+
+    :goto_c
+    const-string v2, ""
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_35
+
+    const-string v2, ""
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_35
+
+    const-string v0, "NONE"
+
+    const-string v1, "[BLACK]"
+
+    invoke-static {v1}, Ld/a/a/a/a;->a(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "[]"
+
+    invoke-static {v0, v1, v2}, Ld/a/a/a/a;->a(Ljava/lang/String;Ljava/lang/StringBuilder;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_2a
+    return-object v0
+
+    :cond_2b
+    invoke-virtual {v0, p1}, Lnet/fdgames/GameLogic/PlayerRequirements;->a(Lnet/fdgames/GameEntities/CharacterSheet/CharacterSheet;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_6
+
+    :cond_30
+    invoke-virtual {v1, p1}, Lnet/fdgames/GameLogic/SkillRequirements;->b(Lnet/fdgames/GameEntities/CharacterSheet/CharacterSheet;)Ljava/lang/String;
+
+    move-result-object v1
+
+    goto :goto_c
+
+    :cond_35
+    const-string v2, ""
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_45
+
+    const-string v2, ""
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4a
+
+    :cond_45
+    invoke-static {v0, v1}, Ld/a/a/a/a;->a(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_2a
+
+    :cond_4a
+    const-string v2, ", "
+
+    invoke-static {v0, v2, v1}, Ld/a/a/a/a;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_2a
+.end method
+
+.method public b(Ljava/lang/String;)V
+    .registers 3
+
+    new-instance v0, Lnet/fdgames/GameLogic/PlayerRequirements;
+
+    invoke-direct {v0, p1}, Lnet/fdgames/GameLogic/PlayerRequirements;-><init>(Ljava/lang/String;)V
+
+    iput-object v0, p0, Lnet/fdgames/Rules/Skill;->traitsRequired:Lnet/fdgames/GameLogic/PlayerRequirements;
+
+    return-void
+.end method
+
+.method public c()Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+    .registers 4
+
+    iget-object v0, p0, Lnet/fdgames/Rules/Skill;->id:Ljava/lang/String;
+
+    sget-object v1, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "\'"
+
+    const-string v2, ""
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lnet/fdgames/assets/Assets;->b(Ljava/lang/String;)Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public d()Z
+    .registers 3
+
+    iget-object v0, p0, Lnet/fdgames/Rules/Skill;->type:Lnet/fdgames/Rules/Skill$SKILL_TYPE;
+
+    sget-object v1, Lnet/fdgames/Rules/Skill$SKILL_TYPE;->b:Lnet/fdgames/Rules/Skill$SKILL_TYPE;
+
+    if-ne v0, v1, :cond_8
+
+    const/4 v0, 0x1
+
+    :goto_7
+    return v0
+
+    :cond_8
+    const/4 v0, 0x0
+
+    goto :goto_7
+.end method
+
+.method public e()I
+    .registers 2
+
+    iget-object v0, p0, Lnet/fdgames/Rules/Skill;->levels:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, -0x1
+
+    return v0
+.end method
