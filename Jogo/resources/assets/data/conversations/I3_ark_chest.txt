@@ -1,6 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	It feels odd to find a regular wooden chest in this location. Probably this has been brought by the Forsaken.	"Te parece extraño que haya un viejo cofre de madera ene ste sitio; seguramente lo han traido los Olvidados."	2		
-2	A	Pry it open, carefully.	Abrirlo cuidadosamente.	3		
-3	Q	You find regular clothes and nothing of value... Until you see it. A magical box obviously crafted by the Muud'ari. It must be the Control Module.	"Sólo encuentras ropas comunes y cosas de poco valor... Hasta que lo ves. Una caja mágica claramente creada por los Muud'ari; debe ser el Módulo de Control."	4	VariableLower#ark_lothasan,71	"GainItem#2622;SetVariable#ark_lothasan,71"
-3	Q	You find regular clothes and nothing of value.	Sólo encuentras ropas comunes y cosas de poco valor.	0		
-4	A	Finally! [BLUE](Take it)[] Now let's find the Main Computer and let's be done.	¡Por fin! [BLUE](Tomarlo)[] Ahora falta encontrar el Ordenador Principal y hemos terminado.	0		

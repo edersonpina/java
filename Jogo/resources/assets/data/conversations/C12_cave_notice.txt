@@ -1,5 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	The old notice says: 'Hall of the Four Witch Queens'. 	El viejo letrero dice: 'Sala de las cuatro Reinas-Brujas'.	2		
-2	Q	In more recent red painting, you see the word 'Hall' has been dashed and 'Tomb' has been written over it. Also 'Four' has been replaced with 'Three'. 	Con pintura roja más reciente, ves que 'Sala' ha sido tachado y se ha escrito debajo 'Tumba'. El número 'Cuatro' se ha emborronado y debajo pone 'Tres'.	3		
-3	A	Tomb? That means they are dead, so I guess it's good news then. Right?	¿Tumba? Eso significa que están muertas, así que son buenas noticias, ¿verdad?	4		
-4	Q	Since you are alone, the reply to your rethoric question is an ominous, uncomfortable silence.	Como estás solo, la respuesta a tu pregunta retórica es un incómodo silencio ominoso.	0		

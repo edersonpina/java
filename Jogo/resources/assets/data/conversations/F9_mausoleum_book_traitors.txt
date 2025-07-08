@@ -1,6 +1,0 @@
-﻿index	type	text_english	text_ES	Go To	conditions	actions	requisites
-1	Q	The Pit of Traitors. The oathbreakers that challenged the Andorian Empire were crushed like insects at the Battle of Greenwood, now called Deadwood. Here lay their cursed bones within no marked grave, may their souls be eternally punished by the Court of the Eleven.	El Foso de los Traidores. Los que osaron rebelarse contra el Imperio Andoriano fueron aplastados en la Batalla de Greenwood, ahora llamado Deadwood. Aquí se amontonan ahora sus huesos malditos, sin lápida ni sepultura. Que la Corte de los Once caiga condene sus almas.	2			
-2	A	Read more.	Leer más.	3			
-2	A	Enough reading.	suficiente lectura.	0			
-3	Q	After their defeat in battle, many rebels fled like cowards to Castle Bluerock, their last refuge. The heroic Imperial Legions pursued the villains and laid siege to the Traitor's Rock for two years. Thus ended the Ronean Rebellion, for the Glory of the Eternal Empire!	Tras su derrota, los cobardes rebeldes huyeron al Castillo Bluerock, su último refugio. Las valerosas Legiones Imperiales les persiguieron y asediaron la Roca del Traidor durante dos años. ¡Así acabó la Rebelion Roneana, para Gloria del Imperio Eterno!	4			
-4	A	War. War never changes.	Guerra. La guerra siempre es igual.	0			

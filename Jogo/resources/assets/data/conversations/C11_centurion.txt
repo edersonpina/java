@@ -1,2 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	Hello adventurer. Please don't stand in the way! My wife departs soon and I need to prepare her rations and weapons. [BLUE](He grins)[] I'll be in trouble if she sees me slacking around...	Hola aventurero. Por favor no te pongas enmedio, mi mujer partirá pronto y tengo que preparar sus raciones y sus armas. [BLUE](Sonrie)[]Si me ve perdiendo el tiempo, me meteré en problemas...	0		

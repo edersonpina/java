@@ -1,9 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	An old lever, set to the right. 	Una vieja palanca, movida hacia la derecha.	4	IsItemActive#lever1	
-1	Q	An old lever, set to the left. It probably opens the nearby grate.	Una vieja palanca, movida hacia la izquierda. Posiblemente abre la verja contígua.	2		
-2	A	Let's see what this does! [BLUE](Push to the right)[]	¡Veámos lo que hace! [BLUE](Empujar a la derecha)[]	3		
-2	A	Yeah... No thanks. I prefer not to touch this.	Vale... No gracias. Mejor no tocarla.	0		
-3	Q	The grate opens noisily.	La verja chirría y se abre.	0		"ItemHide#grate1;ItemWalkable#grate1;ItemActivate#lever1"
-4	A	Let's see what this does! [BLUE](Push to the right)[]	¡Veámos lo que hace! [BLUE](Empujar a la derecha)[]	5		
-4	A	Yeah... No thanks. I prefer not to touch this.	Vale... No gracias. Mejor no tocarla.	0		
-5	Q	The grate closes, clanking loudly.	La verja se cierra ruidosamente.	0		"ItemActivate#grate1;ItemDeactivate#lever1"

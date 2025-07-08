@@ -1,8 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	"An obviously magical door covered in runes, with no keyhole or handles; all it shows is a picture, resembling a fearsome Earth Elemental."	Una puerta de metal claramente mágica, sin cerradura ni pomo. Lo único que ves en ella es una pintura de un Emelental de Tierra.	2		
-2	A	Put your hand on the door and hope for the best.	Poner la mano en la puerta y esperar lo mejor.	3		
-2	A	No way I am going to touch this thing.	No pienso tocar esta cosa.	0		
-3	Q	The door hums softly and opens.	La puerta vibra suavemente y se abre.	4	NPCIsDead#G11_guardian	
-3	Q	You feel a pleasant humming... And then it smells like tasty food. Wait, no! The smell comes from a powerful electrical shock, burning through your flesh.	Sientes un agradable zumbido, y luego un agradable olor de comida... ¡No espera! Lo que huele es tu carne al freirse por una poderosa descarga eléctrica.	0		LoseHPShock#75
-4	A	Walk inside.	Entrar.	0		Travel#G11_tower,1
-4	A	Maybe another time.	Quizá en otro momento.	0		

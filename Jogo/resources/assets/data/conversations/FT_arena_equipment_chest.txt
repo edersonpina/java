@@ -1,5 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	This chest contains all your items.	Dentro de este cofre están todos tus objetos.	2	VariableLower#arena_recovered_items,1	
-1	Q	This chest is empty.	Este cofre está vacío.	0		
-2	A	Get all my equipment back.	Recuperar todos mis objetos.	0		"RecoverInventory#;SetVariable#arena_recovered_items,1"
-3	A	Not yet.	Aun no.	0		

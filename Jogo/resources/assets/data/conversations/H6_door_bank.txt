@@ -1,4 +1,0 @@
-﻿index	type	text_english	text_ES	Go To	conditions	actions
-1	Q	This door leads to the Golden Bay Bank	Esta puerta lleva al Banco de Cala Dorada	2		
-2	A	Enter the building.	Entrar en el edificio.	0		Travel#H6_bank,1,0
-2	A	Stay here.	Permanecer aquí.	0		

@@ -1,7 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	Ancient carvings on this monolith have been adorned over the centuries by Varannari paintings. It's obvious this stone bears some significance for the natives	Los símbolos de este antiguo monolito han sido adornados con dibujos Varannari. Está claro que esta piedra tiene importancia para ellos.	2		
-2	A	No way I'm touching this.	Ni de broma voy a tocar esto.	0		
-2	A	Let's see what happens if I touch this...	Veamos qué ocurre si toco esto...	3		
-3	Q	Nothing happens. If there was magic inside this stone, it probably faded a long time ago.	No ocurre nada. Si había magia en esta gran piedra, quizá murió hace mucho tiempo.	0	VariableLower#varannari_stones,1	
-3	Q	As soon as you touch it, you feel as if you were falling through a very long tunnel...	En cuanto lo tocas, parece como si cayeras por un largo túnel...	4		
-4	Q	You seem to be at a different place!	¡Pareces estar en un sitio diferente!	0		Travel#H11,5

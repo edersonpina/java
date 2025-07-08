@@ -1,4 +1,0 @@
-﻿index	type	text_english	text_ES	Go To	conditions	actions	requisites
-1	Q	I have no idea who you are, but you saved my skin, adventurer.	No tengo ni idea de quién eres pero me has salvado el pellejo, aventurero.	2			
-2	A	Arkados from the guild sends me. Can you handle yourself?	Arkados, del gremio, me ha enviado. Puedes valerte por tí mismo?	3			
-3	Q	"Yes, yes, I am fine. I will find my way back to Arkados, don't worry about me; I was too shocked by the travel magic and the giants caught me by surprise, but otherwise I am pretty sneaky. Thanks and see you soon."	Sí, sí, estoy bien, encontraré yo solo el camino a Freetown. La magia de transporte me dejó atontado y esos dos me pillaron por sorpresa, pero normalmente me muevo a escondidas. Nos vemos pronto, y gracias!	0		"NPCDespawn#free_sulidar;SetVariable#lost_good_book,90"	

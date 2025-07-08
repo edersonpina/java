@@ -1,2 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	Freedom, foreigner. As many city visitors, I am sure you want to see the Games in the Arena, but unfortunately it is closed due to... Technical difficulties.	Libertad, extranjero. Como todos los visitantes de la ciudad, estoy seguro de que querrías ver los Juegos en la Arena, pero lamentablemente permanece cerrada debido a un... Problema técnico.	0		

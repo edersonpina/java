@@ -1,2 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	The bank director is *IN*	Director del banco: disponible.	0		

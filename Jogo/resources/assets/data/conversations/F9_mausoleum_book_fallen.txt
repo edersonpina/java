@@ -1,6 +1,0 @@
-﻿index	type	text_english	text_ES	Go To	conditions	actions	requisites
-1	Q	The Fallen Heroes that died for the Empire. They will never return to Andoria, but the Empire will never forget their sacrifice. 	El Foso de los Caidos que murieron por el Imperio. Nunca regresarán a Andoria, pero el Imperio no olvidará su sacrificio.	2			
-2	A	Read more.	Leer más.	3			
-2	A	Enough reading.	suficiente lectura.	0			
-3	Q	[BLUE](The next pages are very damaged, and list hundreds of names. Likely a record of all the fallen soldiers buried here)[]	[BLUE](Las siguientes páginas están muy dañadas, e incluyen un listado de cientos de nombres. Posiblemente un registro de los soldados caidos aquí)[]	4			
-4	A	Leave.	Enough reading.	0			

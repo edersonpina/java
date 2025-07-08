@@ -1,2 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	[BLUE](You see a magical window that displays a text message)[]. WARNING: reactor level contaminated by fuel leak. Use anti-rad gear and evacuate immediately.	[BLUE](Ves una ventana mágica que muestra un mensaje.)[]. PELIGRO: zona del reactor contaminada por fuga de combustible. Use equipo protector y evacue urgentemente.	0		

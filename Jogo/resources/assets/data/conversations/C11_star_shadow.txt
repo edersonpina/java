@@ -1,8 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	[BLUE](The proud hunter ignores your presence, you need a Trusted reputation, 25, for him to talk to you)[]	Saludos, Impiri. Impiri fuerte y sin miedo, espíritus susurran.	0	VariableLower#REP_varannari,25	
-1	Q	I have heard of you. You are the Impiri that has helped the Free People, many times, when we were in need. And you are a strong hunter yourself. I am Star Shadow, Master of the Hunters. Do you seek training?	He oido hablar de tí. Eres el Impiri que ayuda a la Gente Libre, y además eres un valiente cazador. Soy Sombra de Estrella, Maestro de Cazadores. ¿Quieres entrenar?	2		
-2	A	What can you teach me, Star Shadow?	¿Qué puedes enseñarme, Sombra de Estrella?	3		
-2	A	Thank you, but not now.	Gracias, pero ahora no.	0		
-3	Q	I already taught you the ways of the Varannari Beastmaster. There's nothing else you can learn from me.	Ya te enseñé la senda del Señor de las Bestias, ya no puedes aprender más de mí.	0	VariableEqual#trained_beast,1	
-3	Q	I will teach you how to be a [BLUE]Beast Master[]. You will learn to cause more damage to beasts, and you can call a Bear to assist you in the Hunt. [BLUE]Beast Master is a General Skill, it will not count as one of your Advanced Skills, nor requires any gold to be learned[]	Puedo enseñarte a ser un [BLUE]Maestro de Bestias[]. Aprenderás a causar más daño a bestias, y un oso te acompañará en la Caza. [BLUE]Maestría de Bestias es una habilidad General que no cuenta como habilidad avanzada, ni requiere que gastes oro[].	4		
-4	A	It will be a honor to learn from you.	Será un honor aprender de tí.	0		"TrainSkill#beast_mastery;SetVariable#trained_beast,1"

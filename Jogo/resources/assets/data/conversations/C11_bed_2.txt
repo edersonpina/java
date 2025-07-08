@@ -1,3 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions	requisites
-1	Q	You're not friendly enough with the Varannari to rest safely here  [BLUE](You need to have a reputation of 'friendly' or better with Varannari)[]	No tienes la confianza necesaria con los Varannari como para dormir aquí. [BLUE](Debes tener una reputación de 'amigable' o mejor con Varannari)[]	0	VariableLower#REP_varannari,10		
-1	Q	You sleep while the Varannari guard you from the wild beasts.	Duermes mientras los Varannari te protegen de las bestias salvajes.	0		"FullRest#;Travel#C11,32;Sleep#"	

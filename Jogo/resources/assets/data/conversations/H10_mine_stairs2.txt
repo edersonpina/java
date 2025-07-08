@@ -1,5 +1,0 @@
-﻿index	type	text_english	text_ES	Go To	conditions	actions
-1	Q	This stairway is very ancient, and seems to lead down to a deeper level of the mine.	Estas escaleras parecen muy antiguas, y parecen llevar a un nivel más profundo de la mina.	2	VariableGreater#like_father,10	
-1	Q	This stairway is very ancient, but as you look down, you see that it has been blocked by rocks for a long time. It would require the effort of many men to dig it open again.	Estas escaleras parecen muy antiguas, y descubres que están bloqueadas por cientos de rocas. Haría falta el esfuerzo de muchos hombres para desbloquearla.	0		
-2	A	Go downstairs.	Bajar la escalera.	0		Travel#H10_mine_2,1
-2	A	Stay here.	Quedarse aquí.	0		

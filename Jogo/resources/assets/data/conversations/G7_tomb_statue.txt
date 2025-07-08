@@ -1,8 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions	requisites
-1	Q	This ancient Tolassian statue was probably an artistic wonder once upon a time, but now the centuries have erased most of its features.	Esta antigua estatua Tolassian  sin duda fue una gran obra de arte, pero ahora los siglos han borrado casi todos sus rasgos.	2			
-2	A	Adaon, check this statue!	Adaon, ¡Revisa esta estatua!	3	NPCIsInParty#adaon,adaon		
-2	A	Is that a small lever behind the statue...? [BLUE](Activate it)[]	Hay una pequeña palanca detrás de la estatua [BLUE](Activarla)[]	7			AWA#2
-2	A	Damnit... I have no time to examine statues now.	Maldición, no tengo tiempo de mirar estatuas ahora.	0			
-3,adaon	Q	[BLUE](Coughs heavily)[] I see a small lever, over there!	[BLUE](Tose fuertemente)[] Veo una palanca, ¡ahí!	5			
-5	A	Good job! [BLUE](Activate it)[]	¡buen trabajo! [BLUE](Activarla)[]	7			
-7,R	Q	When you activate it, gas stops hissing into the room, and the iron grates slowly withdraw.	Cuando la activas, el gas deja de inundar la sala, y las rejas de hierro se retiran.	0		"ItemHide#grate1;ItemWalkable#grate1;ItemDeactivate#gas_trap"	

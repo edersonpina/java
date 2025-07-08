@@ -1,4 +1,0 @@
-﻿index	type	text_english	text_ES	Go To	conditions	actions
-1	Q	This door is locked.	Esta puerta está cerrada con llave.	2	VariableEqual#FT_knock,1	
-1	Q	This door is locked.	Esta puerta está cerrada con llave.	0		
-2	A	Knock on it as I was instructed.	Llamar de la forma que me han explicado.	0		Travel#FT_seventh,1,0

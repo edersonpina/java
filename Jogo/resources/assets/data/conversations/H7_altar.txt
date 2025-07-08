@@ -1,6 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions	requisites
-1	Q	Over this ancient altar you see the remains of a silver crown. The beautiful relic has been heavily hit by some kind of blade, crushing it and nearly splitting it in half.	Sobre este antiguo altar reposan los pedazos de una corona de plata. La hermoa reliquia ha sido golpeada por algún tipo de arma, aplastándola y casi partiéndola en dos.	2	"VariableGreater#mangled_god,10;VariableLower#mangled_god,40"		
-1	Q	This black altar has nothing special about it.	Este altar negro no tiene nada de especial	0			
-2	A	Take the Crown.	Tomar la Corona.	3			
-2	A	Better not...	Mejor no...	0			
-3	Q	As soon as your fingers are about to touch it, the Crown flickers and disappears. A deep sinister laughter mocks you, and you find yourself surrounded by an army of undead!	Cuando estás a punto de tocarla, la Corona parpadea y desaparece. Una perversa risa se burla de tí, y ¡de pronto te ves rodeado por un ejército de esqueletos!	0		"SetVariable#mangled_god,40;NPCSpawn#trap"	

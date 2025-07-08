@@ -1,8 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	You already examined this corpse and noted it in your journal.	Ya has examinado el cadaver y anotado los detalles en tu diario.	0	VariableGreater#temple_sleepers,20	
-1	Q	This man has been dead just for some years... An adventurer maybe? He was already an old man when he died, and his dead hands still grasp rotten and torn scrolls, probably looted from somewhere in the ruins.	Este hombre lleva muerto solo unos años ... ¿Un aventurero tal vez? Ya era un anciano cuando murió, y sus manos muertas todavía agarran pergaminos podridos y rotos, probablemente saqueados de algún lugar de las ruinas.	2		
-2	A	Maybe this guy torn the page. Could it be among these papers?	Quizá él fue quien arrancó la página. ¿Podría ser uno de estos papeles?	3	VariableEqual#temple_sleepers,20	"SetVariable#temple_sleepers,30;GainXP#300"
-2	A	Poor man. May the Three look after his soul.	Pobre Hombre. Que Los Tres guíen su alma.	0		
-2	A	Search him for anything valuable.	Buscar cualquier cosa de valor.	4		
-3	Q	You examine the rotten papers carefully and there it is! A page of the same manuscript, and indeed it includes the Prayer for the Temple of the Sleepers: 'Five Sleepers under the Mountain shield us from all evil, may their slumber and peace be eternal'	Examinas cuidadosamente los papeles podridos y descubres que uno de ellos es la página que faltaba. La Oración dice:  'Cinco Durmientes bajo la Montaña nos protegen de todo mal, que su sueño y su paz sean eternos'	0		
-4	Q	There is nothing useful, nor any of the scrolls seem to be magical nor valuable.	No hay nada útil, y ninguno de los pergaminos parece mágico o valioso.	0		

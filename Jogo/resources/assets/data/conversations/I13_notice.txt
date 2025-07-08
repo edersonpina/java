@@ -1,2 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	The signpost says 'South: Whitetower and Varsilia. East: Icemist'. There's also an arrowsign pointing to the west but the name on it has been crossed out.	La señal dice: 'Sur: Whitetower y Varsilia. Este: Icemist'. También hay una flecha que apunta al Oeste, pero el nombre ha sido tachado.	0		

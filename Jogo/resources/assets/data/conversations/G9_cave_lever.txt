@@ -1,6 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	An old lever, set to the right. And stuck in that position.	Una vieja palanca, movida hacia la derecha.	0	IsItemActive#lever	
-1	Q	An old lever, set to the left. Who knows what will happen if you move it to the right...	Una vieja palanca, movida hacia la izquierda. Quién sabe qué pasará s la mueves hacia la derecha...	2		
-2	A	Let's see what this does! [BLUE](Push to the right)[]	¡Veámos lo que hace! [BLUE](Empujar a la derecha)[]	3		
-2	A	Yeah... No thanks. I prefer not to touch this.	Vale... No gracias. Mejor no tocarla.	0		
-3	Q	A deep shriek echoes through the dungeon.	Un profundo chirrido resuena por los túneles.	0		"ItemHide#wolves;ItemWalkable#wolves;ItemActivate#lever"

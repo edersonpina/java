@@ -1,8 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	I have no idea how you did that! Wonderful! You have to explain to me some day.	¡No tengo idea de cómo has hecho eso, increible! me lo tendrás que explicar algún día.	2		SetVariable#where_is_amarisa,100
-2	A	I can explain it now if you want.	Lo puedo explicar ahora si quieres.	3		
-3	Q	Parting ways with you pains me, but there some urgent things I need to do. I've been abducted for a long time, and I need to seek out those that have been missing me, besides you.	Separarme de tí me duele, pero hay cosas urgentes que debo hacer. He estado mucho tiempo prisionera, y debo ir a buscar a aquellos que me han echado de menos, además de tí.	4		
-4	A	I understand.	Comprendo.	5		
-5	Q	Thank you for everything [BLUE](Hugs you)[]. It will not be long before we meet again. I have to show you around Thuram, the land where I was raised. It's time to go, will you prefer to stay here, or you want a lift to New Garand?	Gracias por todo [BLUE](Te abraza)[]. Seguro que pronto nos volvemos a reunir. Quiero enseñarte Thuram, la tierra en que me crié. Es hora de marchar, quieres quedarte aquí, o quieres que te teleporte a New Garand?	6		
-6	A	I'll stay here. Goodbye, sister.	Me quedo aquí. Adiós, hermana.	0		"NPCStopFollowing#;NPCDespawn#I3_amarisa"
-6	A	New Garand would be great. Goodbye, sister.	New Garand está bien. Adiós, hermana.	0		"NPCStopFollowing#;NPCDespawn#I3_amarisa;Travel#NG,999"

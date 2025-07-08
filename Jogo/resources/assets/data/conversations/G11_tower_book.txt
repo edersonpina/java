@@ -1,8 +1,0 @@
-﻿index	type	text_english	text_ES	Go To	conditions	actions	requisites
-1	Q	You have already read this.	Ya has leido este libro.	0	VariableEqual#KNOW_elementalearth,1		
-1	Q	This ancient book is ruined and about to poof into a cloud of dust. You can at least look at the page currently open. However, it is written in ancient Imperial, and seems to deal with magic concepts, hard to understand.	Este antiguo tomo está muy dañado, y a punto de convertirse en una nube de polvo. Puedes ver la página que está abierta, pero está escrito en antiguo Imperial y habla de conceptos mágicos complejos.	2			
-2	A	Concentrate on the text and read the passage.	Concentrarse en el texto y leer el pasaje.	3		"SetVariable#KNOW_elementalearth,1;GainXP#400"	INT#2
-2	A	Too hard for me to understand. Probably it wasn't useful, anyways.	Demasiado difícil de entender ara mí. Seguramente tampoco iba a ser útil.	0			
-3	Q	"It says: 'Earth can thus be shaped and bound to the will of a spirit from the Demiplane; such shape is one almost indestructible to physical harm and to most elemental forces. However, they are rather vulnerable to...'"	"Dice: 'La Tierra toma así forma, y es gobernada por la voluntad de un espíritu del Semiplano. Tales criaturas son casi indestructibles, resistentes al daño físico y elemental; pero son muy vulnerables a... '"	4			
-4	A	This is fascinating! [BLUE](Continue reading)[]	Esto es fascinante! [BLUE](Continuar leyendo)[]	5			
-5	Q	Unfortunately, the other pages are completely rotten.	Por desgracia, el resto de páginas se han podrido.	0			

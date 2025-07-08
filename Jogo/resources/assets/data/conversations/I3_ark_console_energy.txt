@@ -1,5 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	[BLUE](This magical window has five small cavities below it, and is connected to a large machinery)[]. Welcome to Ark Capacitor Recharger. Please insert five standard batteries. 	[BLUE](Esta ventana mágica tiene cinco pequeñas aberturas, y está conectada a una máquina grande)[]. Bienvenido a las Funciones de Recarga del Arca. Por favor, inserta cinco baterías estándar.	2		
-2	A	Nah, maybe later.	No, quizá más tarde.	0		
-2	A	Insert 5 ancient batteries.	Insertar 5 antiguas baterías.	3	PlayerHasItems#1022,5	"LoseItems#1022,5;GainItem#1023"
-3	Q	The large machine begins to buzz and you feel your hair stands on end. You were considering if it would be wise to run away when suddenly all the noise stops and a larger version of the battery is popped out of the machine. You pick it up.	La máquina comienza a zumbar y tus pelos se erizan. Empezabas a pensar en una sabia retirada cuando de pronto el sonido cesa y la máquina escupe una versión más grande de la batería. La recoges.	0		

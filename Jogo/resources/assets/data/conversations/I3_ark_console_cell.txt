@@ -1,3 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	This console can deactivate the energy fields from the cell.	Esta consola puede desactivar los campos de fuerza de las celdas.	2		
-2	A	Do it now!	¡Hagámoslo!	0		"ItemDeactivate#cell_barrier;ItemWalkable#cell_barrier;SetVariable#where_is_amarisa,80"

@@ -1,5 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	This old barrel is empty except for a few empty bottles and rotten apples.	Este viejo barril está vacío, excepto por algunas botellas viejas y manzanas podridas.	2		
-2	A	Let's not anger the fishermen touching this...	Mejor no enfadar a los pescadores tocando esto...	0		
-2	A	Pick one bottle from the barrel	Coger una botella del barril.	3		
-3	Q	Definitely you've seen a red bottle like this before... Yes! That message asking for help, was inside a red bottle, exactly like this one.	Estás seguro de haber visto botellas rojas como estas antes... ¡sí! Ese mensaje pidiendo ayuda estaba dentro de una botella idéntica.	0		SetVariable#message_in_bottle,50

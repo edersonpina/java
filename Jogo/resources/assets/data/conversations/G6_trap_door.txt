@@ -1,8 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions	requisites
-1	Q	The grate is already broken open.	La verja ya ha sido forzada.	0	VariableGreater#TMP_grate,2		
-1	Q	This sturdy grate is covered in sharp iron spikes. Maybe you could try to slam it open, but it doesn't look easy and you'll probably get hurt.	Esta resistente reja está cubierta de pinchos de acero. Quizá puedas derribarla pero no será fácil, y seguramente resultes herido.	2			
-2	A	Slam against it!	¡Cargar contra ella!	3		"IncVariable#TMP_grate,1;LoseHP#45"	
-2	A	There's a small crack between two bars... Insert your weapon and try to pry it open.	Hay una pequeña abertura entre dos barrotes... Usar to arma para intentar forzarla.	3		IncVariable#TMP_grate,3	AWA#4
-2	A	Use all your might to charge against it furiously.	Usar toda tu fuerza para cargar furiosamente contra ella.	3		"IncVariable#TMP_grate,3;LoseHP#45"	STR#5
-3	Q	You manage to break it open!	¡Consigues abrirla!	0	VariableGreater#TMP_grate,2	"ItemHide#grate_snake;ItemWalkable#grate_snake;ItemDeactivate#grate_snake"	
-3	Q	Despite your efforts and pain, the iron grate still stands.	Pese a tu esfuerzo y dolor, la verja sigue en pie.	0			

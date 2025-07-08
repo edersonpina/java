@@ -1,5 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	"This statue is so realistic that only the cracks on the stone remind you this is an inanimate object, and not an actual frozen Varannari woman. Her beauty is mesmerizing; she stands looking at the chasm and extending her right hand towards it."	"Esta estatua es tan realista que solo las grietas en la piedra te recuerdan que no es una auténtica mujer Varannari congelada. Su belleza es hipnótica; está frente al abismo, extendiendo una mano hacia la oscuridad."	2		
-2	A	Kiss her hand.	Besar su mano.	3	"IsItemInactive#bridge;VariableGreater#lady_night,20"	
-2	A	I better go.	Mejor me voy.	0		
-3	Q	As soon as you put your lips on the icy stone, an ancient mechanism rumbles.	Tan pronto como tocas la fria piedra con tus labios, sientes el temblor de un antiguo mecanismo.	0		"ItemActivate#bridge;ItemWalkable#bridge"

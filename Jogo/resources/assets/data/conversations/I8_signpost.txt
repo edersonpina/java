@@ -1,2 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	North: New Anthur.   West: New Garand.   East: Port Malan	Norte: New Anthur.   Oeste: New Garand.   Este: Port Malan	0		

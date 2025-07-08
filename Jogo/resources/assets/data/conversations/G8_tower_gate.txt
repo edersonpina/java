@@ -1,5 +1,0 @@
-﻿index	type	text_english	text_ES	Go To	conditions	actions
-1	Q	[BLUE](As you approach the door, a disembodied voice echoes in your mind)[] You are not welcome by the Wizard's Guild. Leave now, or we'll use force without hesitation.	[BLUE](Al acercarte a la puerta, una voz resuena en tu mente)[] No eres bienvenido por el Gremio de Magos. Márchate, o usaremos la fuerza sin dudarlo.	0	VariableLower#REP_wizardsguild,-9	
-1	Q	This door hums with a strange aura, but doesn't appear to be locked.	Esta puerta irradia un aura de poder, pero no parece cerrada con llave.	2		
-2	A	Enter the tower.	Entrar en la torre.	0		Travel#G8_tower,1,0
-2	A	Stay outside.	Permanecer fuera.	0		

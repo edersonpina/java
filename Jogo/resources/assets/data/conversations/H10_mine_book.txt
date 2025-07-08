@@ -1,9 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	You have already read this book.	Ya has leido este libro.	0	VariableGreater#temple_sleepers,10	
-1	Q	The cover says, in archaic Imperial language, 'The Temple of the Sleepers'. This must be about the place mentioned by the Golem!	La portada dice, en arcaico lenguaje imperial, 'El Templo de los Durmientes'. ¡Debe ser el lugar mencionado por el Golem!	2		
-2	A	Let's see if we can learn more about that Temple.	Veamos si podemos averiguar algo sobre el Templo.	3	VariableEqual#temple_sleepers,10	
-2	A	Maybe later.	Quizá luego.	0		
-3	Q	... It was the first task of our people to find a safe place for the Sleepers to remain, undisturbed. A place where they could be honored and our prayers could be heard. A barrier would be raised, so only those with a Purple Medallion and knowing the Prayer would be able to enter. Here is the Prayer:	...La primera tarea de nuestra gente fue encontrar un lugar seguro para que los Durmientes pudieran yacer. Un lugar donde puedan ser honrados y nuestras oraciones puedan ser escuchadas. Se levantaría una barrera, por lo que solo aquellos con un Medallón Morado y conociendo la Oración podrían entrar. Aquí está la Oración:	4		SetVariable#temple_sleepers,20
-4	A	Nice and convenient to have the prayer here. Let's read it.	Que cómodo tener aquí escrita la oración. Leámosla.	5		
-5	Q	Unfortunately the page has been torn from the book.	Por desgracia han arrancado la página del libro.	6		
-6	A	... Typical.	... Típico.	0		

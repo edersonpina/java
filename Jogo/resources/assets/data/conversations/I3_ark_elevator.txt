@@ -1,6 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	A familiar voice comes from a small grated hole you as you approach the steel gate. 'Sir Valeran gave you two tasks, stopping the Reactor and killing Amarisa. Until they are completed, you won't be talking to me. Hurry, the Gate does not wait'.	Una voz familiar surge de un pequeño agujero enrejado en la pared. 'Sir Valeran te dió dos tareas, apagar el Reactor y matar a Amarisa. Hasta que no las completes, no hablaré contigo. Date prisa, la Puerta no espera'.	0	"VariableGreater#ark_lothasan,80;VariableLower#ark_lothasan,87"	
-1	Q	The elevator seems to be out of order.	El ascensor parece estar desactivado.	0	VariableGreater#ark_lothasan,99	
-1	Q	This will take you to the upper decks and the Forsaken lair. But once you go there, you might not be able to leave for supplies or rest.	Este aparato te conducirá a la cubierta superior y la guarida de Los Olvidados, pero crées que una vez allí quizá no puedas regresar para descansar o abastecerte.	2		
-2	A	I'll return later, I'm not ready.	Volveré más tarde, no estoy preparado.	0		
-2	A	[BLUE](AUTOSAVE)[] Time to end this. Let's go and face the Deep Gate.	Hora de acabar con esto. Vamos a ver la Puerta Profunda.	0		"SaveGame#;Travel#I3_ark2,2"

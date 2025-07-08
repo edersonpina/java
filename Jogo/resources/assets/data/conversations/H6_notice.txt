@@ -1,2 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	Golden Cove Bank	Banco de Cala Dorada.	0		

@@ -1,6 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions	requisites
-1	Q	[BLUE](The soldier salutes you)[] By the Centurion's orders, all travellers are to be given hospitality. However, our resources are limited so I need to ask for a payment of [BLUE]50 gold[]. Are you in need of a safe place to sleep and a warm meal?	[BLUE](El soldado te saluda)[] Por orden del Centurión, todos los viajeros deben recibir hospitalidad. Nuestros recursos son limitados, así que debo pedir [BLUE]50 monedas[]. ¿Necesitas un lugar seguro para dormir y comida caliente?	2			
-2	A	Yes, thanks. Here is the money.	Sí, gracias. Aquí está el dinero.	3	PlayerHasGold#50		
-2	A	Not right now.	Ahora mismo no.	0			
-3	Q	You're welcome. You'll get the same 'luxuries' as any legionnaire, which used to mean something back when I was young... Nowadays it means edible supper and a clean mattress, at least. Enjoy!	De nada. Tendrás los mismos 'lujos' que cualquier legionario, que solía significar algo cuando era joven... Hoy día significa cena comestible y un colchón limpio, que no es poco. ¡Disfruta!	4			
-4	A	I will!	¡Lo haré!	0		"LoseGold#50;FullRest#;Travel#C10,10;Sleep#"	

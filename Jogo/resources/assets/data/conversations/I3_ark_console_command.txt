@@ -1,5 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	Access to the Command Bridge and Main Computer. Terminal BLOCKED.	Acceso al Puente de Mando y Ordenador Central. Terminal BLOQUEADO.	0	VariableEqual#ark_lothasan,90	
-1	Q	Access to the Command Bridge and Main Computer. Please enter <PASSWORD>.	Acceso al Puente de Mando y Ordenador Central. Por favor, intrduzca <CONTRASEÑA>.	2		
-2	A	Type 'Noutamet'.	Escribir 'Noutamet'.	0	VariableEqual#tmp_command_password,1	"ItemDeactivate#command_barrier;ItemWalkable#command_barrier"
-2	A	Damn it, I don't know it.	Maldición, no la conozco.	0		

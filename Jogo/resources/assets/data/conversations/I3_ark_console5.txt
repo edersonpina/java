@@ -1,5 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	Please enter <PASSWORD> to access the Reactor Level.	Por favor introduzca <CONTRASEÑA> Para acceder al nivel del reactor.	2		
-2	A	I have no idea...	No tengo ni idea...	0	VariableLower#password_reactor,1	
-2	A	Type 'SCOTTY'	Escribir 'SCOTTY'.	3	VariableEqual#password_reactor,1	
-3	Q	After a triumphant beeping, the barrier deactivates.	Tras un pitido triunfal, la barrera desaparece.	0		"ItemDeactivate#barrier5;ItemWalkable#barrier5;SetVariable#ark1_barrier5_disabled,1"

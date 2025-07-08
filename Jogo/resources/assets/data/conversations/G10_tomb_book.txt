@@ -1,7 +1,0 @@
-﻿index	type	text_english	text_ES	Go To	conditions	actions
-1	Q	This ancient book is ruined and about to poof into a cloud of dust, but you can at least look at the page currently open, and thanks to its magic, you understand the alien symbols on it.	Este antiguo tomo está muy dañado, y a punto de convertirse en una nube de polvo. Pero puedes ver la página que está abierta, y gracias a su magia, entender los extraños símbolos.	2		
-2	A	Read the passage.	Leer el pasaje.	3		
-2	A	Go away from this book.	Alejarme de este libro.	0		
-3	Q	It says: The [BLUE]Crown of Tol[], and the [BLUE]Eye of Tol[] are sacred artifacts forged millenia ago in another world, by our Lord Tol himself. Just as He was Mangled, the Eye was shattered in endless pieces, and the Crown was sundered. The High Priest keeps the crown until the day the Lord returns to reclaim it.	Dice: la [BLUE]Corona de Tol[] y el [BLUE]Ojo de Tol[], son artefactos forjados en otro mundo hace más de un milenio, por nuestro señor Tol. Así como Él fue Mutilado, el Ojo se resquebrajó, y la Corona fue hendida. El sumo sacerdote guarda la corona como reliquia, hasta que Tol la reclame de nuevo.	4		
-4	A	Ah I had already learned about this. Sounds ominous.	Ah, ya había oido hablar de esto. Parece algo peligroso.	0	VariableGreater#mangled_god,0	
-4	A	A Mangled God which will return... Sounds ominous.	Un diós mutilado que regresará... Esto asusta...	0	VariableLower#mangled_god,10	SetVariable#mangled_god,10

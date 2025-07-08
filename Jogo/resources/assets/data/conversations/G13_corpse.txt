@@ -1,7 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	"Some of the corpses are obviously from adventurers that perished exploring the ruins; they seem to have died recently, but with the frozen temperatures it's hard to tell. One of them seems to hold an open journal in his hand."	Algunos de los cuerpos son claramente de aventureros que cayeron explorando estas ruinas. Parecen muertos recientemente, pero las temperaturas heladas hacen difícil calcularlo. Te llama la atención que uno de ellos sujeta un diario abierto.	2		
-2	A	Read it.	Leerlo.	3		
-2	A	Not in the mood for reading.	No estoy de humor para leer.	0		
-3	Q	It says '... Profitable expedition. Those fools at Icemist pay a very good price even for broken pottery. But these ruins are definitely not Tolassian, as we encountered live Varannari witches controlling the undead. The ancient writings speak of a Mortuory Chamber at the center of the tomb, but so far all our attempts to locate...'	Dice '... Expedición muy lucrativa. Esos tontos de ICemist pagan una fortuna incluso por una vasija rota. Pero estas ruinas claramente no son Tolassian, porque hemos encontrado brujas Varannari controlando los muertos. Las antiguas inscripciones hablan de una Cámara Mortuoria central, pero de momento nuestros intentos de localizar...'	4		
-4	A	Read the next page.	Leer la siguiente página.	5		
-5	Q	Unfortunately the journal and the hand holding it are completely frozen, petrified into a solid block.	Por desgracia tanto el diario como la mano que lo sujetan están congelados, petrificados en un bloque único.	0		

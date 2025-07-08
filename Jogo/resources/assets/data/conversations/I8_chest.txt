@@ -1,8 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	This chest has been forced open and is now empty.	Este baul ha sido forzado y está vacío.	0	VariableGreater#message_in_bottle,60	
-1	Q	This chest is huge, and of surprisingly good quality.	Este baul es enorme, y sorprendentemente de gran calidad.	2	VariableEqual#message_in_bottle,60	
-1	Q	This chest is huge, and of surprisingly good quality. It is secured by several different locks, so opening this while its owners are around is out of the question.	Este baul es enorme, y sorprendentemente de gran calidad. Está asegurado con varias cerraduras diferentes, así que forzarlo delante de sus dueños es imposible.	0		
-2	A	Let's leave this thing for now... It may be trapped.	Dejemos esto por ahora como está... Podría tener trampas.	0		
-2	A	Force it open	Forzar las cerraduras y abrirlo.	3		
-3	Q	To your surprise, a young man stumbles out of the chest, covering his eyes from the sunlight. He seems to be in bad shape, but smiles to you.	Para tu sorpresa, un 	4		
-4	A	Hello... I think I found your message in a bottle.	Hola, creo que he encontrado tu mensaje en la botella.	0		"SetVariable#message_in_bottle,90;NPCSpawn#roger"

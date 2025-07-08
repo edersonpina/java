@@ -1,5 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	[BLUE](You casually put a hand on the stone face and you feel a sudden chill. A voice speaks in your head)[] Finally... You have brought my Crown and I wake up from my long slumber...	[BLUE](Por casualidad pones tu mano sobre la cara de piedra y de pronto sientes un escalofrío)[] Por fin... Has traido mi Corona y despierto de mi largo sueño... 	2	PlayerHasItem#2618	
-1	Q	The stone face remains inert.	La cara de piedra no reacciona.	0		
-2	A	This doesn't sound good, does it...?	Esto no pinta nada bien...	3		
-3	Q	Descend to me! [BLUE](You feel yourself being pulled down, and soon everything around you is blackness)[]	¡Desciende hasta mí! [BLUE](Sientes que algo tira de tí hacia abajo, y pronto todo es oscuridad)[]	0		"HideParty#;Travel#G7_tomb,2"

@@ -1,7 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	This ancient gate is a strange find in the depths of the cavern. It is engraved with undecipherable runes, but you find no obvious way to open it.	Esta antigua puerta mágica parece un elemento extraño en la caverna. Está inscrita con indescifrables runas, pero no ves forma alguna de abrirla.	2		SetVariable#TMP_counter,0
-2	A	Pour scorpion venom over it and say 'Trelaxx'!	Verter veneno de escorpión sobre ella y decir 'Trelaxx'.	4	"VariableEqual#snake_gang,40;PlayerHasItem#5015"	LoseItem#5015
-2	A	Pour some of your water over it and say 'Trelaxx'!	Verter algo de agua sobre ella y decir 'Trelaxx'.	3	VariableEqual#snake_gang,50	
-2	A	Leave.	Marcharse.	0		
-3	Q	The magical gate opens and you advance through a dark corridor. When you finally reach a brightly lit chamber, you notice you were expected.	La puerta se abre y avanzas por un oscuro pasillo. Cuando finalmente llegas a una sala iluminada, descubres que te estaban esperando.	0		Travel#G6_cave,2
-4	Q	The magical gate opens and you advance through a dark corridor. When you finally reach a brightly lit chamber, you notice you were expected. And unfortunately, you find yourself trapped inside an iron cage while toxic gas hisses around you.	La puerta se abre y avanzas por un oscuro pasillo. Cuando finalmente llegas a una sala iluminada, descubres que te estaban esperando. Te encuentras atrapado en una verja de hierro mientras un gas venenoso se extiende.	0		Travel#G6_cave,2

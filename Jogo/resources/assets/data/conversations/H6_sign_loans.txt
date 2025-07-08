@@ -1,2 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	Loans department. Please do not exit the waiting room until your name is called.	Departamento de préstamos. Por favor no salga hasta que se le llame por su nombre.	0		

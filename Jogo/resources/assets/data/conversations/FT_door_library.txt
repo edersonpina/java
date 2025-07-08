@@ -1,4 +1,0 @@
-﻿index	type	text_english	text_ES	Go To	conditions	actions
-1	Q	This door leads to the Grey Library. Above it hangs an emblem picturing a glowing golden hand.	Esta puerta lleva a la Biblioteca Grís. Sobre ella cuelga un cartel en el que se muestra una mano dorada reluciente.	2		
-2	A	Enter the building.	Entrar en el edificio.	0		Travel#FT_library,1,0
-2	A	Stay here.	Permanecer aquí.	0		

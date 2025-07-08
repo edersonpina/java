@@ -1,4 +1,0 @@
-﻿index	type	text_english	text_ES	Go To	conditions	actions
-1	Q	This door leads to the training grounds of the Warriors' Guild.	Esta puerta lleva a los cuarteles de entrenamiento del Gremio de Guerreros.	2		
-2	A	Enter the building.	Entrar en el edificio.	0		Travel#FT_warriors,1,0
-2	A	Stay here.	Permanecer aquí.	0		

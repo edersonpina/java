@@ -1,7 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	"The carvings on this ancient monolith are very unfamiliar; odd shaped curves, forming circular figures of great intrincacy. You see the shilouette of a very large hand in the middle of the monolith."	Los símbolos de este antiguo monolito son desconocidos: curvas formando intrincadas figuras circulares. Ves la silueta de una mano gigante en medio del monolito.	2		
-2	A	No way I'm touching this.	Ni de broma voy a tocar esto.	0		
-2	A	Let's see what happens if I touch this...	Veamos qué ocurre si toco esto...	3		
-3	Q	Nothing happens. If there was magic inside this stone, it probably faded a long time ago.	No ocurre nada. Si había magia en esta gran piedra, quizá murió hace mucho tiempo.	0	VariableLower#mino_defeated,1	
-3	Q	As soon as you touch it, you feel as if you were falling through a very long tunnel...	En cuanto lo tocas, parece como si cayeras por un largo túnel...	4		
-4	Q	You seem to be at a different place!	¡Pareces estar en un sitio diferente!	0		Travel#E10_maze_2,3

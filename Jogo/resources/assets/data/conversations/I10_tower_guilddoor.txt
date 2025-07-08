@@ -1,5 +1,0 @@
-﻿index	type	text_english	text_ES	Go To	conditions	actions
-1	Q	This door is magically locked.	Esta puerta está cerrada con llave mágicamente.	0	VariableLower#guild_wizards,1	
-1	Q	This door is magically locked, but as soon as you come close it recognizes you as a guild member and opens wide, revealing a staircase.	Esta puerta está cerrada con llave mágicamente. Pero al acercarte te reconoce como miembro del gremio y se abre, revelando una escalera.	2		
-2	A	Go upstairs.	Subir las escaleras.	0		Travel#I10_tower,4
-2	A	Stay in this floor.	Quedarse en esta sala.	0		

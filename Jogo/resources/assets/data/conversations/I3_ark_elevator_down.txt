@@ -1,4 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	The elevator is ready to take you out of this area. However you are uncertain how the events will unfold by themselves if you do so.	El ascensor está listo para bajarte a las plantas inferiores. Pero no sabes cómo transcurrirán los acontencimientos si te marchas.	2		
-2	A	I must stay here, certainly the Forsaken will cross the Gate at any moment.	Debo permanecer aquí, los Olvidados cruzarán la Puerta en cualquier momento.	0		
-2	A	I'll just leave and pray to The Three for the Horrors being just a myth.	Me marcharé y rezaré a Los Tres para que Los Horrores sean sólo un mito.	0		EndGame#1

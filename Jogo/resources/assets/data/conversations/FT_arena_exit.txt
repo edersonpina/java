@@ -1,4 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	The door leads to the streets of Freetown. You won't be allowed to return to this room. [RED]Make sure you have recovered all your items from the chest, including those laying on the ground because of a full inventory[].	Esta puerta lleva a las calles de Freetown. No podrás regresar aquí. [RED]Asegúrate de haber recogido tu equipo del cofre, incluyendo objetos que puedan estar en el suelo si tu inventario está lleno[].	2		
-2	A	I will remain here for a while.	Voy a quedarme un poco más.	0		
-2	A	Go out to the streets.	Salir a la calle.	0		"ShowParty#;travel#FT,30"

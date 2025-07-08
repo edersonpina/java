@@ -1,2 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	Emergency teleporter. WARNING, way out only, no teleporting back in is possible.	Teleportador de emergencia. AVISO: Camino sólo de salida, no hay posibilidad de retornar teleportándose.	0		

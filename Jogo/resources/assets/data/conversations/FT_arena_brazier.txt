@@ -1,5 +1,0 @@
-﻿index	type	text_english	text_ES	Go To	conditions	actions
-1	Q	If only you convince a troll to put his head inside this...	Si pudieras convencer a un troll de que metiera la cabeza...	2		
-2	A	No use for me...	No me sirve de nada...	0		
-2	A	Soak the club in the burning oil to improvise a torch.	Sumergir el garrote en el aceite ardiente para improvisar una antorcha.	3	PlayerHasItem#758	"LoseItem#758;GainItem#759"
-3	Q	The crowd had been cheering the trolls until now, just arguing among themselves about which one would eat you first. But as you raise the burning club, all the people begins to clap and howl in excitement.	La muchedumbre había estado animando a los trolls hasta ahora, discutiendo entre ellos cual de los trolls te devoraría primero. Pero cuando alzas tu nueva arma ardiente se ponen a aplaudir y gritar emocionados.	0		

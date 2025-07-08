@@ -1,7 +1,0 @@
-﻿index	type	text_english	text_ES	Go To	conditions	actions
-1	Q	[BLUE](The boatman looks at you warily)[] Hello there. What do you want?	[BLUE](El barquero te mira desconfiado)[] Hola. ¿Qué quieres?	2		
-2	A	Nothing, goodbye.	Nada, adiós.	0		
-2	A	I want transportation by boat.	Quiero que me lleves en bote.	3		
-3	Q	Well, I guess I can take you downstream to [BLUE]Jabal for 250 gold[], in about 12 hours. But if you want to come back, it'll have to be on foot, only without any cargo I can hope to row against the Nekhar's currents.	bueno, supongo que puedo llevarte rio abajo hasta [BLUE]Jabal por 250 monedas[], en unas 12 horas. Pero si quieres regresar tendrá que ser a pie, sólamente puedo remar rio arriba las corrientes del Nekhar si no llevo carga.	4		
-4	A	Take me to Jabal, then.	Llevame a Jabal.	0	playerhasGold#250	"loseGold#250;Travel#E10,5,12"
-4	A	Hmmm I am not sure, maybe I'll be back later.	Hmmm no estoy seguro, quizá vuelva más tarde.	0		

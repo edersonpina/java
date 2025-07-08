@@ -1,2 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	"This seems to be the journal of the Magister. Unfortunately most pages have been torn away and burned in a nearby pile of ashes; all that remains is a small paper fragment with the word 'Noutamet'. "	"Este parece ser el diario del Maestro; lamentablemente las páginas han sido arrancadas y quemadas en una pila de cenizas cercana. Sólo encuentras un trocito de papel con la palabra 'Noutamet'."	0		SetVariable#tmp_command_password,1

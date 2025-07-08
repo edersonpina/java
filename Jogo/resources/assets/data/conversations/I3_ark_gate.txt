@@ -1,2 +1,0 @@
-﻿index	type	text_english	text_ES	Go To	conditions	actions	requisites
-1	Q	The Deep Gate doesn't seem to react to your presence, you move through it and nothing happens. The Forsaken must have some kind of trick to enter it.	La Puerta Profunda no parece reaccionar a tu presencia, la atraviesas y nada ocurre. Los Olvidados deben tener algún tipo de truco para entrar en ella.	0			

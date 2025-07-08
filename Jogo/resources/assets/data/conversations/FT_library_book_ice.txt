@@ -1,7 +1,0 @@
-﻿index	type	text_english	text_ES	Go To	conditions	actions	requisites
-1	Q	The title of this ancient tome is 'The Icy Gate'. It is enormous, too big to take it with you. It seems to be written in Imperial, but the words make little sense to you.	El título de este antiguo tomo es 'La Puerta de Hielo'. Es enorme, demasiado grande para moverlo. Está escrito en Imperial, pero las palabras parecen no tener sentido.	2			
-2	A	Stay away from this thing.	No acercarse a esta cosa.	0			
-2	A	Try to read it aloud.	Intentar leerlo en voz alta.	3			
-3	Q	Suddenly, air is sucked out of your lungs, and you feel yourself falling through a confusing blizzard. Finally you look around, and everything has changed.	De pronto, te falta el aire en los pulmones y te sientes caer y caer a través de una ventisca helada. Finalmente miras a tu alrededor y todo ha cambiado.	4	VariableEqual#lost_good_book,20	SetVariable#lost_good_book,30	
-3	Q	Suddenly, air is sucked out of your lungs, and you feel yourself falling through a confusing blizzard. Finally you look around, and everything has changed.	De pronto, te falta el aire en los pulmones y te sientes caer y caer a través de una ventisca helada. Finalmente miras a tu alrededor y todo ha cambiado.	4			
-4	A	What the...	Pero qué...	0		Travel#I12,3,0	

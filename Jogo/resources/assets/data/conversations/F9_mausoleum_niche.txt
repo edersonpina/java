@@ -1,5 +1,0 @@
-﻿index	type	text_english	text_ES	Go To	conditions	actions	requisites
-1	Q	The niche behind this tombstone is open and empty.	El nicho tras esta lápida está vacío.	2			
-2	A	Yeah... Not interested, at lest for a while.	Ya... No me interesa, al menos de momento.	0			
-2	A	Carefully put Sir Morfados' remains inside the niche.	Introducir cuidadosamente los restos de Sir Morfados en el nicho.	3	PlayerHasItem#2529	"LoseItem#2529;SetVariable#restless_dead,90;GainXP#300"	
-3	Q	A blinding flash of light forces you to protect your eyes. When you open them again, blinking, you see a ghostly form raising from the niche, and finally dissolving into nothingness. You are overcome with a feeling of peace.	Una luz cegadora te obliga a cubrir tus ojos. Al volver a abrirlos ves la figura fantasmal del caballero elevándose poco a poco, y finalmente deapareciendo, con una gran sensación de paz.	0			

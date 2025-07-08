@@ -1,7 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions	
-1	Q	This ancient petrified skeleton seems to have merged with the molten lava on the ground. Its stretched hand seems to have carved some symbols on the nearby slab of granite.	Este antiguo esqueleto petrificado parece haberse fusionado con la lava del suelo. Su mano extendida parece haber grabado algo en la roca de granito cercana.	2	"VariableGreater#lost_codex,0;VariableLower#lost_codex,20"		
-1	Q	A petrified skeleton. You see nothing of value around it.	Un esqueleto petrificado. No ves nada de valor a su alrededor.	0			
-2	A	Try to read the carving.	Intentar leer el grabado.	3			
-2	A	Hmmm... This is classical Imperial writing. Let's read it.	Hmmm... Esto es escritura imperial clásica. Vamos a leerlo.	4			INT#3
-3	Q	"It makes no sense to you; even if the alphabet is similar to Imperial, it's too archaic to be legible."	No entiendes lo que dice. Incluso si el alfabeto es similar al Imperial, es demasiado arcaico para que lo entiendas.	0			
-4	Q	With great effort and patience you read the ancient text. It was originally five sentences long, but only two in the middle remain: '...preserved from burning air... Buried under unusual colored... '	Con gran esfuerzo lees el antiguo texto. Eran cinco frases, pero sólo dos han permanecido: '... Preservado del aire ardiente... Enterrado bajo... extraño color...'	0		SetVariable#lost_codex,20	

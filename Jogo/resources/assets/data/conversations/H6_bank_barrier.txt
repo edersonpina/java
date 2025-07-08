@@ -1,5 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	This magical barrier of energy seems to be indestructible...	Esta barrera de energía mágica parece indestructible...	2		
-2	A	It is impossible to even make a dent on this thing...	Es imposible dañar esta cosa...	0		
-2	A	Put the magical keystone in contact with the barrier.	Poner la gema mágica en contacto con la barrera	3	PlayerHasItem#2532	
-3	Q	There is a flash of turquoise light, and both gem and barrier dissolve into nothingness.	Hay un destello de luz turquesa, y tanto la gema como la barrera se disuelven en la nada.	0		"ItemDeactivate#barrier2;LoseItem#2532"

@@ -1,3 +1,0 @@
-﻿index	type	text	text_ES	Go To	conditions	actions
-1	Q	This notice says: "Lannegar mine, now reopened"	Este cartel dice: "A la mina de Lannegar, ahora reabierta"	0	VariableEqual#lannegar_mine_cleared,1	
-1	Q	This notice says: "To the abandoned mine. Caution: goblins everywhere"	Este cartel dice: ""A la mina abandonada. Peligro: goblins por todas partes"	0		
