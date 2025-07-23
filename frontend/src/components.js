@@ -1,518 +1,717 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-// Header Component
-export const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-700">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">H</span>
-            </div>
-            <span className="text-white text-xl font-bold">Hero Forge</span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/create" className="text-white hover:text-blue-400 transition-colors duration-200 font-medium">
-              Create
-            </Link>
-            <Link to="/shop" className="text-white hover:text-blue-400 transition-colors duration-200 font-medium">
-              Shop
-            </Link>
-            <Link to="/gallery" className="text-white hover:text-blue-400 transition-colors duration-200 font-medium">
-              Gallery
-            </Link>
-            <a href="#" className="text-white hover:text-blue-400 transition-colors duration-200 font-medium">
-              Support
-            </a>
-          </nav>
-
-          {/* Desktop Auth Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <button className="text-white hover:text-blue-400 transition-colors duration-200">
-              Sign In
-            </button>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200">
-              Sign Up
-            </button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden text-white"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-slate-700">
-            <div className="flex flex-col space-y-4">
-              <Link to="/create" className="text-white hover:text-blue-400 transition-colors duration-200">
-                Create
-              </Link>
-              <Link to="/shop" className="text-white hover:text-blue-400 transition-colors duration-200">
-                Shop
-              </Link>
-              <Link to="/gallery" className="text-white hover:text-blue-400 transition-colors duration-200">
-                Gallery
-              </Link>
-              <a href="#" className="text-white hover:text-blue-400 transition-colors duration-200">
-                Support
-              </a>
-            </div>
-          </div>
-        )}
-      </div>
-    </header>
-  );
-};
-
-// Hero Component
-export const Hero = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+// Main Menu Component
+export const MainMenu = () => {
+  const [currentBgIndex, setCurrentBgIndex] = useState(0);
   
-  const heroImages = [
-    "https://images.unsplash.com/photo-1601255596436-3d600117f19e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxjaGFyYWN0ZXJzfGVufDB8fHxibHVlfDE3NTMyOTQ1MjR8MA&ixlib=rb-4.1.0&q=85",
-    "https://images.unsplash.com/photo-1698086034294-752ffbd0f832?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzl8MHwxfHNlYXJjaHwzfHxmaWd1cmluZXN8ZW58MHx8fGJsdWV8MTc1MzI5NDUwOXww&ixlib=rb-4.1.0&q=85",
-    "https://images.unsplash.com/photo-1612635466104-e3aab50680b6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwyfHx0b3lzfGVufDB8fHxibHVlfDE3NTMyOTQ1MzJ8MA&ixlib=rb-4.1.0&q=85"
+  const backgroundImages = [
+    "https://images.unsplash.com/photo-1735720518793-804614ff5c48?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxmYW50YXN5JTIwUlBHfGVufDB8fHx8MTc1MzI5NTExN3ww&ixlib=rb-4.1.0&q=85",
+    "https://images.unsplash.com/photo-1749794425043-f83668a6e6d5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxmYW50YXN5JTIwUlBHfGVufDB8fHx8MTc1MzI5NTExN3ww&ixlib=rb-4.1.0&q=85",
+    "https://images.unsplash.com/photo-1668261834846-eb10673033bf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwxfHxtZWRpZXZhbCUyMHdhcnJpb3J8ZW58MHx8fHwxNzUzMjk1MTI0fDA&ixlib=rb-4.1.0&q=85"
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-    }, 4000);
+      setCurrentBgIndex((prev) => (prev + 1) % backgroundImages.length);
+    }, 5000);
     
     return () => clearInterval(interval);
-  }, [heroImages.length]);
+  }, [backgroundImages.length]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Video/Animation Effect */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-purple-900/20 z-10"></div>
-      
-      {/* Hero Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-              Create Your
-              <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent block">
-                Perfect Hero
-              </span>
-            </h1>
-            <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-              Design and customize unique 3D miniatures for your tabletop adventures. 
-              Bring your characters to life with our advanced creation tools.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link 
-                to="/create"
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105"
-              >
-                Start Creating
-              </Link>
-              <Link 
-                to="/gallery"
-                className="border-2 border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300"
-              >
-                View Gallery
-              </Link>
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0">
+        <img 
+          src={backgroundImages[currentBgIndex]}
+          alt="Fantasy Background"
+          className="w-full h-full object-cover transition-opacity duration-2000"
+        />
+        <div className="absolute inset-0 bg-black/50"></div>
+      </div>
+
+      {/* Main Menu Content */}
+      <div className="relative z-10 text-center max-w-md mx-auto px-6">
+        {/* Game Title */}
+        <div className="mb-12">
+          <h1 className="text-6xl font-bold text-amber-200 mb-4 drop-shadow-2xl tracking-wider">
+            EXILED
+          </h1>
+          <h2 className="text-4xl font-bold text-amber-300 mb-2 drop-shadow-xl">
+            KINGDOMS
+          </h2>
+          <p className="text-amber-100 text-lg italic drop-shadow-lg">
+            A Classic Fantasy RPG Adventure
+          </p>
+        </div>
+
+        {/* Menu Options */}
+        <div className="space-y-4">
+          <Link 
+            to="/new-game"
+            className="block w-full bg-gradient-to-r from-amber-600 to-amber-800 hover:from-amber-500 hover:to-amber-700 text-white py-4 px-8 rounded-lg font-bold text-xl transition-all duration-300 transform hover:scale-105 border-2 border-amber-400 shadow-xl"
+          >
+            NEW GAME
+          </Link>
+          
+          <Link 
+            to="/game"
+            className="block w-full bg-gradient-to-r from-stone-600 to-stone-800 hover:from-stone-500 hover:to-stone-700 text-white py-4 px-8 rounded-lg font-bold text-xl transition-all duration-300 transform hover:scale-105 border-2 border-stone-400 shadow-xl"
+          >
+            CONTINUE
+          </Link>
+          
+          <button className="block w-full bg-gradient-to-r from-red-600 to-red-800 hover:from-red-500 hover:to-red-700 text-white py-4 px-8 rounded-lg font-bold text-xl transition-all duration-300 transform hover:scale-105 border-2 border-red-400 shadow-xl">
+            LOAD GAME
+          </button>
+          
+          <button className="block w-full bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-500 hover:to-blue-700 text-white py-4 px-8 rounded-lg font-bold text-xl transition-all duration-300 transform hover:scale-105 border-2 border-blue-400 shadow-xl">
+            SETTINGS
+          </button>
+          
+          <button className="block w-full bg-gradient-to-r from-gray-600 to-gray-800 hover:from-gray-500 hover:to-gray-700 text-white py-4 px-8 rounded-lg font-bold text-xl transition-all duration-300 transform hover:scale-105 border-2 border-gray-400 shadow-xl">
+            EXIT
+          </button>
+        </div>
+
+        {/* Version Info */}
+        <div className="mt-8 text-amber-200 text-sm opacity-75">
+          Version 1.0 - Fantasy RPG Clone
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Character Creation Component
+export const CharacterCreation = () => {
+  const navigate = useNavigate();
+  const [selectedClass, setSelectedClass] = useState('warrior');
+  const [characterName, setCharacterName] = useState('');
+  const [attributes, setAttributes] = useState({
+    strength: 10,
+    agility: 10,
+    intellect: 10,
+    endurance: 10
+  });
+  const [availablePoints, setAvailablePoints] = useState(20);
+
+  const classes = {
+    warrior: {
+      name: 'Warrior',
+      description: 'Masters of combat with high strength and endurance. Excels in melee weapons and heavy armor.',
+      image: "https://images.unsplash.com/photo-1668261834846-eb10673033bf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwxfHxtZWRpZXZhbCUyMHdhcnJpb3J8ZW58MHx8fHwxNzUzMjk1MTI0fDA&ixlib=rb-4.1.0&q=85",
+      bonuses: { strength: 5, endurance: 3 }
+    },
+    rogue: {
+      name: 'Rogue',
+      description: 'Swift and stealthy fighters who rely on agility and cunning. Masters of ranged combat and thievery.',
+      image: "https://images.unsplash.com/photo-1571652542118-5cc33c994b7c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxmYW50YXN5JTIwUlBHfGVufDB8fHx8MTc1MzI5NTExN3ww&ixlib=rb-4.1.0&q=85",
+      bonuses: { agility: 5, intellect: 2 }
+    },
+    cleric: {
+      name: 'Cleric',
+      description: 'Holy warriors blessed with divine magic. Can heal allies and smite undead enemies.',
+      image: "https://images.unsplash.com/photo-1749794425043-f83668a6e6d5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxmYW50YXN5JTIwUlBHfGVufDB8fHx8MTc1MzI5NTExN3ww&ixlib=rb-4.1.0&q=85",
+      bonuses: { intellect: 4, endurance: 3 }
+    },
+    mage: {
+      name: 'Mage',
+      description: 'Masters of arcane magic with devastating spells. Weak in physical combat but powerful from range.',
+      image: "https://images.unsplash.com/photo-1735720518793-804614ff5c48?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxmYW50YXN5JTIwUlBHfGVufDB8fHx8MTc1MzI5NTExN3ww&ixlib=rb-4.1.0&q=85",
+      bonuses: { intellect: 6, agility: 2 }
+    }
+  };
+
+  const adjustAttribute = (attr, change) => {
+    const newValue = attributes[attr] + change;
+    if (newValue >= 5 && newValue <= 20) {
+      if (change > 0 && availablePoints > 0) {
+        setAttributes(prev => ({ ...prev, [attr]: newValue }));
+        setAvailablePoints(prev => prev - 1);
+      } else if (change < 0 && attributes[attr] > 5) {
+        setAttributes(prev => ({ ...prev, [attr]: newValue }));
+        setAvailablePoints(prev => prev + 1);
+      }
+    }
+  };
+
+  const startGame = () => {
+    if (characterName.trim()) {
+      // Save character data to localStorage or context
+      localStorage.setItem('character', JSON.stringify({
+        name: characterName,
+        class: selectedClass,
+        attributes,
+        level: 1,
+        experience: 0,
+        health: 100,
+        mana: 50
+      }));
+      navigate('/game');
+    }
+  };
+
+  return (
+    <div className="min-h-screen p-6">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold text-amber-200 mb-2">Create Your Hero</h1>
+          <p className="text-amber-100">Choose your path in the Exiled Kingdoms</p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Character Preview */}
+          <div className="bg-black/30 backdrop-blur-sm rounded-lg border-2 border-amber-600 p-6">
+            <h2 className="text-2xl font-bold text-amber-200 mb-4">Character Preview</h2>
+            
+            <div className="relative mb-6">
+              <img 
+                src={classes[selectedClass].image}
+                alt={classes[selectedClass].name}
+                className="w-full h-64 object-cover rounded-lg"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 rounded-b-lg">
+                <h3 className="text-2xl font-bold text-white">{classes[selectedClass].name}</h3>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div>
+                <label className="block text-amber-200 font-bold mb-2">Character Name:</label>
+                <input 
+                  type="text"
+                  value={characterName}
+                  onChange={(e) => setCharacterName(e.target.value)}
+                  className="w-full bg-stone-800 border-2 border-amber-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-amber-400"
+                  placeholder="Enter your hero's name"
+                />
+              </div>
+
+              <div>
+                <h4 className="text-xl font-bold text-amber-200 mb-2">Final Attributes</h4>
+                <div className="grid grid-cols-2 gap-4">
+                  {Object.entries(attributes).map(([attr, value]) => (
+                    <div key={attr} className="bg-stone-700 rounded-lg p-3">
+                      <div className="text-amber-100 capitalize font-semibold">{attr}</div>
+                      <div className="text-2xl font-bold text-white">
+                        {value + (classes[selectedClass].bonuses[attr] || 0)}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Right Content - Rotating Images */}
-          <div className="relative">
-            <div className="relative w-full h-96 lg:h-[500px] rounded-2xl overflow-hidden bg-gradient-to-br from-slate-700 to-slate-800 shadow-2xl">
-              <img 
-                src={heroImages[currentImageIndex]}
-                alt="3D Miniature Character"
-                className="w-full h-full object-cover transition-opacity duration-1000"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+          {/* Character Creation Options */}
+          <div className="space-y-6">
+            {/* Class Selection */}
+            <div className="bg-black/30 backdrop-blur-sm rounded-lg border-2 border-amber-600 p-6">
+              <h2 className="text-2xl font-bold text-amber-200 mb-4">Choose Your Class</h2>
+              
+              <div className="grid grid-cols-2 gap-4">
+                {Object.entries(classes).map(([key, classData]) => (
+                  <button
+                    key={key}
+                    onClick={() => setSelectedClass(key)}
+                    className={`p-4 rounded-lg border-2 transition-all duration-300 ${
+                      selectedClass === key 
+                        ? 'border-amber-400 bg-amber-600/20' 
+                        : 'border-stone-600 bg-stone-800/50 hover:border-amber-600'
+                    }`}
+                  >
+                    <h3 className="text-lg font-bold text-white mb-2">{classData.name}</h3>
+                    <p className="text-sm text-amber-100">{classData.description}</p>
+                  </button>
+                ))}
+              </div>
             </div>
-            
-            {/* Image Indicators */}
-            <div className="flex justify-center mt-4 space-x-2">
-              {heroImages.map((_, index) => (
+
+            {/* Attribute Allocation */}
+            <div className="bg-black/30 backdrop-blur-sm rounded-lg border-2 border-amber-600 p-6">
+              <h2 className="text-2xl font-bold text-amber-200 mb-4">
+                Allocate Attributes 
+                <span className="text-lg text-amber-100 ml-2">({availablePoints} points remaining)</span>
+              </h2>
+              
+              <div className="space-y-4">
+                {Object.entries(attributes).map(([attr, value]) => (
+                  <div key={attr} className="flex items-center justify-between">
+                    <span className="text-amber-100 capitalize font-semibold w-24">{attr}:</span>
+                    <div className="flex items-center space-x-4">
+                      <button
+                        onClick={() => adjustAttribute(attr, -1)}
+                        className="w-8 h-8 bg-red-600 hover:bg-red-500 text-white rounded-lg font-bold"
+                        disabled={value <= 5}
+                      >
+                        -
+                      </button>
+                      <span className="text-2xl font-bold text-white w-12 text-center">{value}</span>
+                      <button
+                        onClick={() => adjustAttribute(attr, 1)}
+                        className="w-8 h-8 bg-green-600 hover:bg-green-500 text-white rounded-lg font-bold"
+                        disabled={availablePoints <= 0 || value >= 20}
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex space-x-4">
+              <Link 
+                to="/"
+                className="flex-1 bg-gray-600 hover:bg-gray-500 text-white py-3 px-6 rounded-lg font-bold text-center transition-colors"
+              >
+                Back
+              </Link>
+              <button
+                onClick={startGame}
+                disabled={!characterName.trim()}
+                className="flex-1 bg-green-600 hover:bg-green-500 disabled:bg-gray-600 text-white py-3 px-6 rounded-lg font-bold transition-colors"
+              >
+                Start Adventure
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Game World Component
+export const GameWorld = () => {
+  const [character, setCharacter] = useState(null);
+  const [currentLocation, setCurrentLocation] = useState('town');
+  const [showInventory, setShowInventory] = useState(false);
+  const [showJournal, setShowJournal] = useState(false);
+
+  useEffect(() => {
+    const savedCharacter = localStorage.getItem('character');
+    if (savedCharacter) {
+      setCharacter(JSON.parse(savedCharacter));
+    }
+  }, []);
+
+  const locations = {
+    town: {
+      name: 'Elara Town',
+      description: 'A peaceful trading town surrounded by farmlands and forests.',
+      image: "https://images.unsplash.com/photo-1749794425043-f83668a6e6d5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxmYW50YXN5JTIwUlBHfGVufDB8fHx8MTc1MzI5NTExN3ww&ixlib=rb-4.1.0&q=85",
+      actions: ['Visit Tavern', 'Enter Shop', 'Go to Forest', 'Rest at Inn']
+    },
+    forest: {
+      name: 'Darkwood Forest',
+      description: 'A mysterious forest filled with ancient trees and dangerous creatures.',
+      image: "https://images.unsplash.com/photo-1668261200406-7f7d12cca0fc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwyfHxtZWRpZXZhbCUyMHdhcnJpb3J8ZW58MHx8fHwxNzUzMjk1MTI0fDA&ixlib=rb-4.1.0&q=85",
+      actions: ['Hunt Wolves', 'Search for Herbs', 'Explore Deeper', 'Return to Town']
+    },
+    dungeon: {
+      name: 'Ancient Ruins',
+      description: 'Crumbling stone corridors filled with traps and treasures.',
+      image: "https://images.unsplash.com/photo-1509718966846-7fb920af0ae3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwzfHxtZWRpZXZhbCUyMHdhcnJpb3J8ZW58MHx8fHwxNzUzMjk1MTI0fDA&ixlib=rb-4.1.0&q=85",
+      actions: ['Fight Skeleton', 'Search for Treasure', 'Cast Spell', 'Retreat']
+    }
+  };
+
+  if (!character) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-amber-200 mb-4">No Character Found</h2>
+          <Link to="/new-game" className="bg-amber-600 hover:bg-amber-500 text-white px-6 py-3 rounded-lg font-bold">
+            Create Character
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen relative">
+      {/* Game Interface Header */}
+      <div className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b-2 border-amber-600">
+        <div className="flex items-center justify-between p-4">
+          {/* Character Info */}
+          <div className="flex items-center space-x-4">
+            <div className="bg-amber-600 rounded-full w-12 h-12 flex items-center justify-center">
+              <span className="text-white font-bold text-lg">{character.name[0]}</span>
+            </div>
+            <div>
+              <h3 className="text-amber-200 font-bold">{character.name}</h3>
+              <p className="text-amber-100 text-sm capitalize">{character.class} • Level {character.level}</p>
+            </div>
+          </div>
+
+          {/* Status Bars */}
+          <div className="flex-1 max-w-md mx-4">
+            <div className="mb-1">
+              <div className="flex justify-between text-sm text-amber-100">
+                <span>Health</span>
+                <span>{character.health}/100</span>
+              </div>
+              <div className="w-full bg-red-900 rounded-full h-3">
+                <div 
+                  className="bg-red-500 h-3 rounded-full transition-all duration-300"
+                  style={{ width: `${character.health}%` }}
+                ></div>
+              </div>
+            </div>
+            <div>
+              <div className="flex justify-between text-sm text-amber-100">
+                <span>Mana</span>
+                <span>{character.mana}/50</span>
+              </div>
+              <div className="w-full bg-blue-900 rounded-full h-3">
+                <div 
+                  className="bg-blue-500 h-3 rounded-full transition-all duration-300"
+                  style={{ width: `${(character.mana / 50) * 100}%` }}
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Menu Buttons */}
+          <div className="flex space-x-2">
+            <button
+              onClick={() => setShowInventory(!showInventory)}
+              className="bg-amber-600 hover:bg-amber-500 text-white px-4 py-2 rounded-lg font-semibold"
+            >
+              Inventory
+            </button>
+            <button
+              onClick={() => setShowJournal(!showJournal)}
+              className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg font-semibold"
+            >
+              Journal
+            </button>
+            <Link 
+              to="/"
+              className="bg-red-600 hover:bg-red-500 text-white px-4 py-2 rounded-lg font-semibold"
+            >
+              Menu
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Game Area */}
+      <div className="pt-24 p-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-6">
+            {/* Location View */}
+            <div className="lg:col-span-2">
+              <div className="bg-black/30 backdrop-blur-sm rounded-lg border-2 border-amber-600 overflow-hidden">
+                <div className="relative">
+                  <img 
+                    src={locations[currentLocation].image}
+                    alt={locations[currentLocation].name}
+                    className="w-full h-96 object-cover"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                    <h2 className="text-3xl font-bold text-white mb-2">{locations[currentLocation].name}</h2>
+                    <p className="text-amber-100">{locations[currentLocation].description}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="mt-6 grid grid-cols-2 gap-4">
+                {locations[currentLocation].actions.map((action, index) => (
+                  <button
+                    key={index}
+                    className="bg-amber-600 hover:bg-amber-500 text-white py-3 px-6 rounded-lg font-bold transition-colors"
+                    onClick={() => {
+                      if (action.includes('Forest')) setCurrentLocation('forest');
+                      else if (action.includes('Town')) setCurrentLocation('town');
+                      else if (action.includes('Ruins') || action.includes('Deeper')) setCurrentLocation('dungeon');
+                    }}
+                  >
+                    {action}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Side Panel */}
+            <div className="space-y-6">
+              {/* Quick Stats */}
+              <div className="bg-black/30 backdrop-blur-sm rounded-lg border-2 border-amber-600 p-6">
+                <h3 className="text-xl font-bold text-amber-200 mb-4">Character Stats</h3>
+                <div className="space-y-3">
+                  {Object.entries(character.attributes).map(([attr, value]) => (
+                    <div key={attr} className="flex justify-between">
+                      <span className="text-amber-100 capitalize">{attr}:</span>
+                      <span className="text-white font-bold">{value}</span>
+                    </div>
+                  ))}
+                  <div className="border-t border-amber-600 pt-3 mt-3">
+                    <div className="flex justify-between">
+                      <span className="text-amber-100">Experience:</span>
+                      <span className="text-white font-bold">{character.experience}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Quick Actions */}
+              <div className="bg-black/30 backdrop-blur-sm rounded-lg border-2 border-amber-600 p-6">
+                <h3 className="text-xl font-bold text-amber-200 mb-4">Quick Actions</h3>
+                <div className="space-y-3">
+                  <button className="w-full bg-green-600 hover:bg-green-500 text-white py-2 px-4 rounded-lg font-semibold">
+                    Cast Heal
+                  </button>
+                  <button className="w-full bg-red-600 hover:bg-red-500 text-white py-2 px-4 rounded-lg font-semibold">
+                    Attack
+                  </button>
+                  <button className="w-full bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded-lg font-semibold">
+                    Use Skill
+                  </button>
+                  <button className="w-full bg-purple-600 hover:bg-purple-500 text-white py-2 px-4 rounded-lg font-semibold">
+                    Use Item
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Inventory Overlay */}
+      {showInventory && (
+        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
+          <div className="bg-stone-800 rounded-lg border-2 border-amber-600 max-w-4xl w-full max-h-[80vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-amber-200">Inventory</h2>
                 <button
+                  onClick={() => setShowInventory(false)}
+                  className="text-white hover:text-amber-200 text-2xl"
+                >
+                  ✕
+                </button>
+              </div>
+              <Inventory embedded={true} />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Journal Overlay */}
+      {showJournal && (
+        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
+          <div className="bg-stone-800 rounded-lg border-2 border-amber-600 max-w-4xl w-full max-h-[80vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-amber-200">Quest Journal</h2>
+                <button
+                  onClick={() => setShowJournal(false)}
+                  className="text-white hover:text-amber-200 text-2xl"
+                >
+                  ✕
+                </button>
+              </div>
+              <Journal embedded={true} />
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+// Inventory Component
+export const Inventory = ({ embedded = false }) => {
+  const [selectedTab, setSelectedTab] = useState('weapons');
+  
+  const inventoryItems = {
+    weapons: [
+      { name: 'Iron Sword', damage: '1d8+2', rarity: 'common', description: 'A sturdy iron blade, well-balanced for combat.' },
+      { name: 'Steel Axe', damage: '1d10+1', rarity: 'common', description: 'Heavy axe that cleaves through armor.' },
+      { name: 'Elven Bow', damage: '1d6+3', rarity: 'rare', description: 'Crafted by elven artisans, never misses its mark.' },
+      { name: 'Magic Staff', damage: '1d4+4', rarity: 'epic', description: 'Channels magical energy for devastating spells.' }
+    ],
+    armor: [
+      { name: 'Leather Armor', defense: '+2 AC', rarity: 'common', description: 'Basic protection for adventurers.' },
+      { name: 'Chain Mail', defense: '+4 AC', rarity: 'common', description: 'Interlocked metal rings provide solid defense.' },
+      { name: 'Plate Armor', defense: '+6 AC', rarity: 'rare', description: 'Heavy armor that turns aside most attacks.' },
+      { name: 'Robe of Warding', defense: '+3 AC, +2 MR', rarity: 'epic', description: 'Magical robes that protect against spells.' }
+    ],
+    consumables: [
+      { name: 'Health Potion', effect: 'Restore 50 HP', rarity: 'common', description: 'A red liquid that heals wounds.' },
+      { name: 'Mana Potion', effect: 'Restore 30 MP', rarity: 'common', description: 'Blue elixir that restores magical energy.' },
+      { name: 'Antidote', effect: 'Cure Poison', rarity: 'common', description: 'Neutralizes toxic substances.' },
+      { name: 'Elixir of Strength', effect: '+5 STR (1 hour)', rarity: 'rare', description: 'Temporarily increases physical power.' }
+    ],
+    misc: [
+      { name: 'Gold Coins', quantity: 150, rarity: 'common', description: 'Standard currency of the realm.' },
+      { name: 'Lockpicks', quantity: 5, rarity: 'common', description: 'Tools for opening locked doors and chests.' },
+      { name: 'Torch', quantity: 3, rarity: 'common', description: 'Provides light in dark places.' },
+      { name: 'Ancient Key', quantity: 1, rarity: 'epic', description: 'A mysterious key with unknown purpose.' }
+    ]
+  };
+
+  const getRarityColor = (rarity) => {
+    switch (rarity) {
+      case 'common': return 'text-gray-300';
+      case 'rare': return 'text-blue-400';
+      case 'epic': return 'text-purple-400';
+      case 'legendary': return 'text-yellow-400';
+      default: return 'text-white';
+    }
+  };
+
+  return (
+    <div className={embedded ? '' : 'min-h-screen p-6'}>
+      <div className={embedded ? '' : 'max-w-6xl mx-auto'}>
+        {!embedded && (
+          <div className="text-center mb-8">
+            <h1 className="text-4xl font-bold text-amber-200 mb-2">Inventory</h1>
+            <Link to="/game" className="text-amber-100 hover:text-amber-200">← Back to Game</Link>
+          </div>
+        )}
+
+        <div className="bg-black/30 backdrop-blur-sm rounded-lg border-2 border-amber-600">
+          {/* Tabs */}
+          <div className="flex border-b border-amber-600">
+            {Object.keys(inventoryItems).map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setSelectedTab(tab)}
+                className={`px-6 py-4 font-bold capitalize transition-colors ${
+                  selectedTab === tab
+                    ? 'bg-amber-600 text-white'
+                    : 'text-amber-200 hover:text-white hover:bg-amber-600/20'
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+
+          {/* Items Grid */}
+          <div className="p-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {inventoryItems[selectedTab].map((item, index) => (
+                <div
                   key={index}
-                  onClick={() => setCurrentImageIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentImageIndex ? 'bg-blue-500' : 'bg-slate-600'
-                  }`}
-                />
+                  className="bg-stone-700 rounded-lg p-4 border-2 border-stone-600 hover:border-amber-400 transition-colors cursor-pointer"
+                >
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className={`font-bold ${getRarityColor(item.rarity)}`}>
+                      {item.name}
+                    </h3>
+                    {item.quantity && (
+                      <span className="text-amber-100 text-sm">x{item.quantity}</span>
+                    )}
+                  </div>
+                  
+                  {item.damage && (
+                    <div className="text-red-400 text-sm mb-1">Damage: {item.damage}</div>
+                  )}
+                  {item.defense && (
+                    <div className="text-blue-400 text-sm mb-1">Defense: {item.defense}</div>
+                  )}
+                  {item.effect && (
+                    <div className="text-green-400 text-sm mb-1">Effect: {item.effect}</div>
+                  )}
+                  
+                  <p className="text-amber-100 text-sm mt-2">{item.description}</p>
+                  
+                  <div className="mt-3 flex space-x-2">
+                    <button className="bg-green-600 hover:bg-green-500 text-white px-3 py-1 rounded text-sm">
+                      Use
+                    </button>
+                    <button className="bg-red-600 hover:bg-red-500 text-white px-3 py-1 rounded text-sm">
+                      Drop
+                    </button>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
-// Features Component
-export const Features = () => {
-  const features = [
-    {
-      title: "3D Character Creator",
-      description: "Design your perfect miniature with our intuitive 3D creation tools",
-      image: "https://images.unsplash.com/photo-1603589138334-be34651248b0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwyfHxmYW50YXN5JTIwbWluaWF0dXJlc3xlbnwwfHx8Ymx1ZXwxNzUzMjk0NDg1fDA&ixlib=rb-4.1.0&q=85",
-      icon: "🎨"
-    },
-    {
-      title: "Endless Customization",
-      description: "Choose from thousands of parts, poses, and color combinations",
-      image: "https://images.pexels.com/photos/6848351/pexels-photo-6848351.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      icon: "⚙️"
-    },
-    {
-      title: "High Quality Prints",
-      description: "Professional 3D printing in multiple materials and finishes",
-      image: "https://images.pexels.com/photos/29148783/pexels-photo-29148783/free-photo-of-3d-printed-architectural-model-in-hand.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      icon: "🖨️"
+// Skills Component
+export const Skills = () => {
+  const [character, setCharacter] = useState(null);
+  
+  useEffect(() => {
+    const savedCharacter = localStorage.getItem('character');
+    if (savedCharacter) {
+      setCharacter(JSON.parse(savedCharacter));
     }
-  ];
+  }, []);
 
-  return (
-    <section className="py-20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Bring Your Characters to Life
-          </h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Create, customize, and order your perfect miniature with our cutting-edge tools
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <div 
-              key={index}
-              className="group bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700 hover:border-blue-500 transition-all duration-300 transform hover:scale-105"
-            >
-              <div className="relative mb-6">
-                <img 
-                  src={feature.image}
-                  alt={feature.title}
-                  className="w-full h-48 object-cover rounded-xl"
-                />
-                <div className="absolute top-4 right-4 text-3xl bg-white/20 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center">
-                  {feature.icon}
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
-                {feature.title}
-              </h3>
-              <p className="text-slate-300 leading-relaxed">
-                {feature.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// Gallery Component
-export const Gallery = ({ expanded = false }) => {
-  const galleryItems = [
-    {
-      image: "https://images.pexels.com/photos/20144906/pexels-photo-20144906/free-photo-of-cute-girl-doll-in-dress.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      title: "Fantasy Warrior",
-      creator: "DragonSlayer92"
-    },
-    {
-      image: "https://images.unsplash.com/photo-1644984875413-7f65e3671564?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwxfHx0b3lzfGVufDB8fHxibHVlfDE3NTMyOTQ1MzJ8MA&ixlib=rb-4.1.0&q=85",
-      title: "Playful Builder",
-      creator: "CreativeMind"
-    },
-    {
-      image: "https://images.unsplash.com/photo-1601255596436-3d600117f19e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxjaGFyYWN0ZXJzfGVufDB8fHxibHVlfDE3NTMyOTQ1MjR8MA&ixlib=rb-4.1.0&q=85",
-      title: "Cyber Knight",
-      creator: "TechnoMage"
-    },
-    {
-      image: "https://images.unsplash.com/photo-1698086034294-752ffbd0f832?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzl8MHwxfHNlYXJjaHwzfHxmaWd1cmluZXN8ZW58MHx8fGJsdWV8MTc1MzI5NDUwOXww&ixlib=rb-4.1.0&q=85",
-      title: "Duo Heroes",
-      creator: "AdventureCrew"
-    },
-    {
-      image: "https://images.unsplash.com/photo-1612635466104-e3aab50680b6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwyfHx0b3lzfGVufDB8fHxibHVlfDE3NTMyOTQ1MzJ8MA&ixlib=rb-4.1.0&q=85",
-      title: "Space Ranger",
-      creator: "GalacticHero"
-    },
-    {
-      image: "https://images.unsplash.com/photo-1603589138334-be34651248b0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwyfHxmYW50YXN5JTIwbWluaWF0dXJlc3xlbnwwfHx8Ymx1ZXwxNzUzMjk0NDg1fDA&ixlib=rb-4.1.0&q=85",
-      title: "Beast Companions",
-      creator: "WildTamer"
-    }
-  ];
-
-  const displayItems = expanded ? galleryItems : galleryItems.slice(0, 6);
-
-  return (
-    <section className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Community Gallery
-          </h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Discover amazing creations from our community of miniature makers
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {displayItems.map((item, index) => (
-            <div 
-              key={index}
-              className="group bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700 hover:border-blue-500 transition-all duration-300 transform hover:scale-105"
-            >
-              <div className="relative">
-                <img 
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-slate-400">
-                  by {item.creator}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {!expanded && (
-          <div className="text-center mt-12">
-            <Link 
-              to="/gallery"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105"
-            >
-              View All Creations
-            </Link>
-          </div>
-        )}
-      </div>
-    </section>
-  );
-};
-
-// Character Creator Component
-export const CharacterCreator = () => {
-  const [selectedCategory, setSelectedCategory] = useState('race');
-  const [selectedOptions, setSelectedOptions] = useState({
-    race: 'Human',
-    gender: 'Male',
-    class: 'Warrior',
-    pose: 'Standing',
-    weapon: 'Sword',
-    armor: 'Leather'
-  });
-
-  const categories = {
-    race: ['Human', 'Elf', 'Dwarf', 'Orc', 'Halfling', 'Dragonborn'],
-    gender: ['Male', 'Female', 'Non-binary'],
-    class: ['Warrior', 'Mage', 'Rogue', 'Paladin', 'Ranger', 'Cleric'],
-    pose: ['Standing', 'Action', 'Spellcasting', 'Defending', 'Attacking'],
-    weapon: ['Sword', 'Staff', 'Bow', 'Dagger', 'Axe', 'Shield'],
-    armor: ['Leather', 'Chainmail', 'Plate', 'Robes', 'Light', 'Heavy']
+  const skills = {
+    combat: [
+      { name: 'Sword Mastery', level: 3, maxLevel: 10, description: 'Increases damage with sword weapons.' },
+      { name: 'Archery', level: 1, maxLevel: 10, description: 'Improves accuracy and damage with bows.' },
+      { name: 'Armor Training', level: 2, maxLevel: 10, description: 'Reduces armor penalties and increases defense.' }
+    ],
+    magic: [
+      { name: 'Fire Magic', level: 2, maxLevel: 10, description: 'Unlocks powerful fire spells.' },
+      { name: 'Healing', level: 1, maxLevel: 10, description: 'Allows casting of healing spells.' },
+      { name: 'Mana Control', level: 1, maxLevel: 10, description: 'Increases maximum mana and regeneration.' }
+    ],
+    utility: [
+      { name: 'Lockpicking', level: 1, maxLevel: 10, description: 'Opens locked doors and chests.' },
+      { name: 'Herbalism', level: 0, maxLevel: 10, description: 'Identify and craft potions from plants.' },
+      { name: 'Diplomacy', level: 2, maxLevel: 10, description: 'Improves dialogue options and prices.' }
+    ]
   };
 
   return (
-    <div className="pt-20 min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="min-h-screen p-6">
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-            Character Creator
-          </h1>
-          <p className="text-xl text-slate-300">
-            Design your perfect miniature hero
-          </p>
+          <h1 className="text-4xl font-bold text-amber-200 mb-2">Skills & Abilities</h1>
+          <Link to="/game" className="text-amber-100 hover:text-amber-200">← Back to Game</Link>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* 3D Viewer */}
-          <div className="lg:col-span-2">
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700 p-8">
-              <div className="aspect-square bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl flex items-center justify-center relative overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1601255596436-3d600117f19e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxjaGFyYWN0ZXJzfGVufDB8fHxibHVlfDE3NTMyOTQ1MjR8MA&ixlib=rb-4.1.0&q=85"
-                  alt="3D Character Preview"
-                  className="w-full h-full object-cover rounded-xl"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="bg-black/50 backdrop-blur-sm rounded-lg p-4">
-                    <h3 className="text-white font-bold text-lg">
-                      {selectedOptions.race} {selectedOptions.class}
-                    </h3>
-                    <p className="text-slate-300">
-                      {selectedOptions.gender} • {selectedOptions.pose} • {selectedOptions.weapon}
-                    </p>
+        <div className="grid lg:grid-cols-3 gap-6">
+          {Object.entries(skills).map(([category, skillList]) => (
+            <div key={category} className="bg-black/30 backdrop-blur-sm rounded-lg border-2 border-amber-600 p-6">
+              <h2 className="text-2xl font-bold text-amber-200 mb-4 capitalize">{category} Skills</h2>
+              
+              <div className="space-y-4">
+                {skillList.map((skill, index) => (
+                  <div key={index} className="bg-stone-700 rounded-lg p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <h3 className="text-white font-bold">{skill.name}</h3>
+                      <span className="text-amber-200">
+                        {skill.level}/{skill.maxLevel}
+                      </span>
+                    </div>
+                    
+                    <div className="w-full bg-stone-800 rounded-full h-2 mb-2">
+                      <div 
+                        className="bg-amber-500 h-2 rounded-full"
+                        style={{ width: `${(skill.level / skill.maxLevel) * 100}%` }}
+                      ></div>
+                    </div>
+                    
+                    <p className="text-amber-100 text-sm mb-3">{skill.description}</p>
+                    
+                    <button 
+                      className="bg-amber-600 hover:bg-amber-500 text-white px-4 py-2 rounded-lg font-semibold text-sm"
+                      disabled={skill.level >= skill.maxLevel}
+                    >
+                      Upgrade
+                    </button>
                   </div>
-                </div>
-              </div>
-              
-              {/* Action Buttons */}
-              <div className="flex justify-center space-x-4 mt-6">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
-                  Save Design
-                </button>
-                <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
-                  Order Print
-                </button>
-                <button className="border border-slate-500 text-slate-300 hover:bg-slate-700 px-6 py-3 rounded-lg font-semibold transition-colors">
-                  Share
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Customization Panel */}
-          <div className="space-y-6">
-            {/* Category Tabs */}
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700 p-6">
-              <h3 className="text-white font-bold text-lg mb-4">Customization</h3>
-              
-              <div className="grid grid-cols-3 gap-2 mb-6">
-                {Object.keys(categories).map((category) => (
-                  <button
-                    key={category}
-                    onClick={() => setSelectedCategory(category)}
-                    className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors capitalize ${
-                      selectedCategory === category 
-                        ? 'bg-blue-600 text-white' 
-                        : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
-                    }`}
-                  >
-                    {category}
-                  </button>
                 ))}
-              </div>
-
-              {/* Options for Selected Category */}
-              <div className="space-y-2">
-                {categories[selectedCategory].map((option) => (
-                  <button
-                    key={option}
-                    onClick={() => setSelectedOptions(prev => ({ ...prev, [selectedCategory]: option }))}
-                    className={`w-full text-left px-4 py-3 rounded-lg transition-colors ${
-                      selectedOptions[selectedCategory] === option
-                        ? 'bg-blue-600/20 border border-blue-500 text-blue-400'
-                        : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
-                    }`}
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Color Customization */}
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700 p-6">
-              <h3 className="text-white font-bold text-lg mb-4">Colors</h3>
-              <div className="grid grid-cols-6 gap-2">
-                {['#ef4444', '#f97316', '#eab308', '#22c55e', '#3b82f6', '#8b5cf6', '#ec4899', '#64748b'].map((color) => (
-                  <button
-                    key={color}
-                    className="w-8 h-8 rounded-full border-2 border-slate-600 hover:border-white transition-colors"
-                    style={{ backgroundColor: color }}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-// Shop Component
-export const Shop = () => {
-  const products = [
-    {
-      id: 1,
-      name: "Premium Resin Print",
-      price: "$29.99",
-      image: "https://images.unsplash.com/photo-1601255596436-3d600117f19e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxjaGFyYWN0ZXJzfGVufDB8fHxibHVlfDE3NTMyOTQ1MjR8MA&ixlib=rb-4.1.0&q=85",
-      description: "High-quality resin print with fine details"
-    },
-    {
-      id: 2,
-      name: "Metal Miniature",
-      price: "$49.99",
-      image: "https://images.unsplash.com/photo-1698086034294-752ffbd0f832?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzl8MHwxfHNlYXJjaHwzfHxmaWd1cmluZXN8ZW58MHx8fGJsdWV8MTc1MzI5NDUwOXww&ixlib=rb-4.1.0&q=85",
-      description: "Durable metal casting for premium collectors"
-    },
-    {
-      id: 3,
-      name: "Painted Miniature",
-      price: "$79.99",
-      image: "https://images.pexels.com/photos/20144906/pexels-photo-20144906/free-photo-of-cute-girl-doll-in-dress.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      description: "Professionally painted by expert artists"
-    },
-    {
-      id: 4,
-      name: "Digital Download",
-      price: "$9.99",
-      image: "https://images.pexels.com/photos/29148783/pexels-photo-29148783/free-photo-of-3d-printed-architectural-model-in-hand.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      description: "STL file for your own 3D printer"
-    }
-  ];
-
-  return (
-    <div className="pt-20 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-            Shop Miniatures
-          </h1>
-          <p className="text-xl text-slate-300">
-            Choose your preferred format and quality
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products.map((product) => (
-            <div 
-              key={product.id}
-              className="bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700 overflow-hidden hover:border-blue-500 transition-all duration-300 transform hover:scale-105"
-            >
-              <img 
-                src={product.image}
-                alt={product.name}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-bold text-white">{product.name}</h3>
-                  <span className="text-2xl font-bold text-blue-400">{product.price}</span>
-                </div>
-                <p className="text-slate-300 mb-4">{product.description}</p>
-                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors">
-                  Add to Cart
-                </button>
               </div>
             </div>
           ))}
@@ -522,73 +721,145 @@ export const Shop = () => {
   );
 };
 
-// Footer Component
-export const Footer = () => {
+// Journal Component
+export const Journal = ({ embedded = false }) => {
+  const [selectedTab, setSelectedTab] = useState('active');
+  
+  const quests = {
+    active: [
+      {
+        title: 'The Missing Merchant',
+        description: 'Find the missing trader who disappeared near Darkwood Forest.',
+        objectives: ['Search the forest', 'Find clues about the merchant', 'Report back to the town guard'],
+        reward: '100 gold, Iron Sword',
+        difficulty: 'Easy'
+      },
+      {
+        title: 'Ancient Ruins Expedition',
+        description: 'Explore the mysterious ruins discovered east of town.',
+        objectives: ['Enter the ruins', 'Defeat the guardian', 'Retrieve the ancient artifact'],
+        reward: '250 gold, Magic Ring',
+        difficulty: 'Medium'
+      }
+    ],
+    completed: [
+      {
+        title: 'Welcome to Elara',
+        description: 'Learn the basics of adventuring in the town of Elara.',
+        objectives: ['Visit the tavern', 'Buy equipment', 'Talk to NPCs'],
+        reward: '50 gold, Health Potion',
+        difficulty: 'Tutorial'
+      }
+    ],
+    failed: []
+  };
+
+  const getDifficultyColor = (difficulty) => {
+    switch (difficulty.toLowerCase()) {
+      case 'easy': return 'text-green-400';
+      case 'medium': return 'text-yellow-400';
+      case 'hard': return 'text-red-400';
+      case 'tutorial': return 'text-blue-400';
+      default: return 'text-white';
+    }
+  };
+
   return (
-    <footer className="bg-slate-900 border-t border-slate-700 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8">
-          <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">H</span>
-              </div>
-              <span className="text-white text-xl font-bold">Hero Forge</span>
+    <div className={embedded ? '' : 'min-h-screen p-6'}>
+      <div className={embedded ? '' : 'max-w-6xl mx-auto'}>
+        {!embedded && (
+          <div className="text-center mb-8">
+            <h1 className="text-4xl font-bold text-amber-200 mb-2">Quest Journal</h1>
+            <Link to="/game" className="text-amber-100 hover:text-amber-200">← Back to Game</Link>
+          </div>
+        )}
+
+        <div className="bg-black/30 backdrop-blur-sm rounded-lg border-2 border-amber-600">
+          {/* Tabs */}
+          <div className="flex border-b border-amber-600">
+            {Object.keys(quests).map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setSelectedTab(tab)}
+                className={`px-6 py-4 font-bold capitalize transition-colors ${
+                  selectedTab === tab
+                    ? 'bg-amber-600 text-white'
+                    : 'text-amber-200 hover:text-white hover:bg-amber-600/20'
+                }`}
+              >
+                {tab} ({quests[tab].length})
+              </button>
+            ))}
+          </div>
+
+          {/* Quest List */}
+          <div className="p-6">
+            <div className="space-y-4">
+              {quests[selectedTab].map((quest, index) => (
+                <div
+                  key={index}
+                  className="bg-stone-700 rounded-lg p-6 border-2 border-stone-600"
+                >
+                  <div className="flex justify-between items-start mb-4">
+                    <h3 className="text-xl font-bold text-white">{quest.title}</h3>
+                    <span className={`font-semibold ${getDifficultyColor(quest.difficulty)}`}>
+                      {quest.difficulty}
+                    </span>
+                  </div>
+                  
+                  <p className="text-amber-100 mb-4">{quest.description}</p>
+                  
+                  <div className="mb-4">
+                    <h4 className="text-amber-200 font-bold mb-2">Objectives:</h4>
+                    <ul className="space-y-1">
+                      {quest.objectives.map((obj, objIndex) => (
+                        <li key={objIndex} className="text-amber-100 flex items-center">
+                          <span className="mr-2">•</span>
+                          {obj}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <span className="text-amber-200 font-bold">Reward: </span>
+                      <span className="text-green-400">{quest.reward}</span>
+                    </div>
+                    {selectedTab === 'active' && (
+                      <button className="bg-amber-600 hover:bg-amber-500 text-white px-4 py-2 rounded-lg font-semibold">
+                        Track Quest
+                      </button>
+                    )}
+                  </div>
+                </div>
+              ))}
+              
+              {quests[selectedTab].length === 0 && (
+                <div className="text-center py-12">
+                  <p className="text-amber-100 text-lg">No {selectedTab} quests.</p>
+                </div>
+              )}
             </div>
-            <p className="text-slate-400 mb-4">
-              Create amazing 3D miniatures for your tabletop adventures.
-            </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                </svg>
-              </a>
-              <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
-                </svg>
-              </a>
-            </div>
           </div>
-
-          <div>
-            <h4 className="text-white font-bold mb-4">Product</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">Character Creator</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">3D Printing</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">Digital Downloads</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">Painted Minis</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-white font-bold mb-4">Support</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">Help Center</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">Contact Us</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">Community</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">Tutorials</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-white font-bold mb-4">Company</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">About Us</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">Careers</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">Terms of Service</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="border-t border-slate-700 mt-8 pt-8 text-center">
-          <p className="text-slate-400">
-            © 2025 Hero Forge Clone. All rights reserved. Built for demonstration purposes.
-          </p>
         </div>
       </div>
-    </footer>
+    </div>
+  );
+};
+
+// Settings Component (placeholder)
+export const Settings = () => {
+  return (
+    <div className="min-h-screen p-6">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold text-amber-200">Settings</h1>
+        </div>
+        <div className="bg-black/30 backdrop-blur-sm rounded-lg border-2 border-amber-600 p-6">
+          <p className="text-amber-100">Settings panel coming soon...</p>
+        </div>
+      </div>
+    </div>
   );
 };
