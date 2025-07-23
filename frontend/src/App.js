@@ -1,38 +1,55 @@
-import { useEffect } from "react";
-import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
-
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+import React, { useState, useEffect } from 'react';
+import './App.css';
+import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { 
+  Header, 
+  Hero, 
+  Features, 
+  Gallery, 
+  CharacterCreator, 
+  Shop, 
+  Footer 
+} from './components';
 
 const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
   return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
+    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-blue-900 to-slate-900">
+      <Header />
+      <Hero />
+      <Features />
+      <Gallery />
+      <Footer />
+    </div>
+  );
+};
+
+const CreatePage = () => {
+  return (
+    <div className="min-h-screen bg-slate-900">
+      <Header />
+      <CharacterCreator />
+    </div>
+  );
+};
+
+const ShopPage = () => {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-blue-900 to-slate-900">
+      <Header />
+      <Shop />
+      <Footer />
+    </div>
+  );
+};
+
+const GalleryPage = () => {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-blue-900 to-slate-900">
+      <Header />
+      <div className="pt-20">
+        <Gallery expanded={true} />
+      </div>
+      <Footer />
     </div>
   );
 };
@@ -42,9 +59,10 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
+          <Route path="/" element={<Home />} />
+          <Route path="/create" element={<CreatePage />} />
+          <Route path="/shop" element={<ShopPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
         </Routes>
       </BrowserRouter>
     </div>
