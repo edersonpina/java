@@ -1,13 +1,17 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Marcellus:wght@400&display=swap');
 
 .App {
     min-height: 100vh;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Marcellus', serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.font-medieval {
+    font-family: 'Cinzel', serif;
 }
 
 /* Custom scrollbar */
@@ -16,16 +20,16 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: #1e293b;
+    background: #44403c;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #475569;
+    background: #d97706;
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #64748b;
+    background: #ea6a0a;
 }
 
 /* Smooth scroll behavior */
@@ -33,64 +37,239 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Custom animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Medieval-style animations */
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
 }
 
-@keyframes pulse {
+@keyframes glow {
     0%, 100% {
-        opacity: 1;
+        text-shadow: 0 0 5px #fbbf24, 0 0 10px #fbbf24, 0 0 15px #fbbf24;
     }
     50% {
-        opacity: 0.5;
+        text-shadow: 0 0 10px #fbbf24, 0 0 20px #fbbf24, 0 0 30px #fbbf24;
     }
 }
 
-.animate-fade-in-up {
-    animation: fadeInUp 0.6s ease-out;
+@keyframes pulse-amber {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(251, 191, 36, 0);
+    }
 }
 
-.animate-pulse-slow {
-    animation: pulse 2s infinite;
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
-/* Custom gradient backgrounds */
-.gradient-bg {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
 }
 
-.gradient-text {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+/* Apply animations */
+.animate-flicker {
+    animation: flicker 2s ease-in-out infinite;
 }
 
-/* Hover effects */
-.hover-glow:hover {
-    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
-    transition: box-shadow 0.3s ease;
+.animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
 }
 
-/* Custom button styles */
-.btn-primary {
-    @apply bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105;
+.animate-pulse-amber {
+    animation: pulse-amber 2s infinite;
 }
 
-.btn-secondary {
-    @apply border-2 border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300;
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+}
+
+/* Fantasy UI Elements */
+.fantasy-border {
+    position: relative;
+    border: 2px solid #d97706;
+    border-radius: 8px;
+}
+
+.fantasy-border:before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: linear-gradient(45deg, #fbbf24, #d97706, #92400e, #fbbf24);
+    border-radius: 10px;
+    z-index: -1;
+    animation: shimmer 3s linear infinite;
+    background-size: 400% 400%;
+}
+
+/* RPG-style buttons */
+.rpg-button {
+    position: relative;
+    background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+    border: 2px solid #fbbf24;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.rpg-button:hover {
+    background: linear-gradient(135deg, #ea580c 0%, #b45309 100%);
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+    transform: translateY(-2px);
+}
+
+.rpg-button:active {
+    transform: translateY(0);
+}
+
+.rpg-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.rpg-button:hover:before {
+    left: 100%;
+}
+
+/* Health and Mana bars */
+.health-bar {
+    background: linear-gradient(90deg, #dc2626, #ef4444);
+    border: 1px solid #991b1b;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.mana-bar {
+    background: linear-gradient(90deg, #1d4ed8, #3b82f6);
+    border: 1px solid #1e3a8a;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Status bar backgrounds */
+.status-bg {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #d97706;
+}
+
+/* Inventory grid */
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+/* Item rarity glows */
+.item-common {
+    border-color: #9ca3af;
+}
+
+.item-rare {
+    border-color: #60a5fa;
+    box-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
+}
+
+.item-epic {
+    border-color: #c084fc;
+    box-shadow: 0 0 10px rgba(192, 132, 252, 0.3);
+}
+
+.item-legendary {
+    border-color: #fbbf24;
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+    animation: pulse-amber 2s infinite;
+}
+
+/* Quest difficulty indicators */
+.difficulty-easy { color: #4ade80; }
+.difficulty-medium { color: #fbbf24; }
+.difficulty-hard { color: #ef4444; }
+.difficulty-tutorial { color: #60a5fa; }
+
+/* Character portrait */
+.character-portrait {
+    border: 3px solid #d97706;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fbbf24, #d97706);
+    box-shadow: 0 0 15px rgba(217, 119, 6, 0.5);
+}
+
+/* Medieval text styles */
+.medieval-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    letter-spacing: 2px;
+}
+
+.medieval-subtitle {
+    font-family: 'Cinzel', serif;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    letter-spacing: 1px;
+}
+
+/* Location backgrounds */
+.location-overlay {
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+}
+
+/* Mobile responsiveness improvements */
+@media (max-width: 768px) {
+    .rpg-button {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+    
+    .medieval-title {
+        font-size: 2.5rem;
+    }
+    
+    .medieval-subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .inventory-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Loading animations */
-@keyframes spin {
+@keyframes spin-slow {
     from {
         transform: rotate(0deg);
     }
@@ -100,27 +279,57 @@ html {
 }
 
 .animate-spin-slow {
-    animation: spin 3s linear infinite;
-}
-
-/* Card hover effects */
-.card-hover {
-    transition: all 0.3s ease;
-}
-
-.card-hover:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    animation: spin-slow 3s linear infinite;
 }
 
 /* Backdrop blur fallback */
 .backdrop-blur-fallback {
-    background-color: rgba(30, 41, 59, 0.8);
+    background-color: rgba(68, 64, 60, 0.8);
 }
 
 @supports (backdrop-filter: blur(8px)) {
     .backdrop-blur-fallback {
         backdrop-filter: blur(8px);
-        background-color: rgba(30, 41, 59, 0.5);
+        background-color: rgba(68, 64, 60, 0.5);
     }
+}
+
+/* Fantasy card effects */
+.fantasy-card {
+    background: linear-gradient(135deg, rgba(68, 64, 60, 0.9), rgba(41, 37, 36, 0.9));
+    border: 2px solid #d97706;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.fantasy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(217, 119, 6, 0.3);
+}
+
+/* Skill progress bars */
+.skill-progress {
+    background: linear-gradient(90deg, #d97706, #fbbf24);
+    border-radius: 9999px;
+    height: 8px;
+    transition: width 0.5s ease;
+}
+
+.skill-progress-bg {
+    background: #44403c;
+    border-radius: 9999px;
+    height: 8px;
+    border: 1px solid #78716c;
+}
+
+/* Action button styles */
+.action-button {
+    background: linear-gradient(135deg, #059669, #047857);
+    border: 2px solid #10b981;
+    transition: all 0.2s ease;
+}
+
+.action-button:hover {
+    background: linear-gradient(135deg, #065f46, #064e3b);
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
 }
